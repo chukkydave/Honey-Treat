@@ -47,7 +47,7 @@ function loginAsDean() {
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `token=${response.data.token};path=/;${expires}`;
+			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
 
 			localStorage.setItem('hta_firstName', firstName);
 			localStorage.setItem('hta_lastName', lastName);
@@ -60,7 +60,7 @@ function loginAsDean() {
 				text: `Thank you for loging in`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				// onClose: reload(),
+				onClose: redirect(dean),
 			});
 			$('#dLoginLoader').hide();
 			$('#dLoginBtn').hide();
@@ -109,7 +109,7 @@ function loginAsInstructor() {
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `token=${response.data.token};path=/;${expires}`;
+			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
 
 			localStorage.setItem('hta_firstName', firstName);
 			localStorage.setItem('hta_lastName', lastName);
@@ -122,7 +122,7 @@ function loginAsInstructor() {
 				text: `Thank you for loging in`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				// onClose: reload(),
+				onClose: redirect(instructor),
 			});
 		})
 		.catch(function(error) {
@@ -168,7 +168,7 @@ function loginAsStudent() {
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `token=${response.data.token};path=/;${expires}`;
+			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
 
 			localStorage.setItem('hta_firstName', firstName);
 			localStorage.setItem('hta_lastName', lastName);
@@ -181,7 +181,7 @@ function loginAsStudent() {
 				text: `Thank you for loging in`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				// onClose: reload(),
+				onClose: redirect(student),
 			});
 		})
 		.catch(function(error) {
@@ -195,6 +195,12 @@ function loginAsStudent() {
 				confirmButtonText: 'Close',
 			});
 		});
+}
+
+function redirect(where) {
+	setTimeout(() => {
+		window.location = `/${where}`;
+	}, 2000);
 }
 
 let username = 'Max Brown';
