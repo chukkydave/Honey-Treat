@@ -29,7 +29,6 @@ function loginAsDean() {
 			password: password,
 		})
 		.then(function(response) {
-			console.log(response);
 			$('#dLoginLoader').hide();
 			$('#dLoginBtn').show();
 
@@ -38,7 +37,7 @@ function loginAsDean() {
 				email,
 				firstName,
 				lastName,
-				password,
+				department_id,
 				position,
 				profilePic,
 				_id,
@@ -47,20 +46,27 @@ function loginAsDean() {
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
+			document.cookie = `deanToken=${response.data.token};path=/;${expires}`;
 
-			localStorage.setItem('hta_firstName', firstName);
-			localStorage.setItem('hta_lastName', lastName);
-			localStorage.setItem('hta_email', email);
-			localStorage.setItem('hta_position', position);
-			localStorage.setItem('hta_profilePic', profilePic);
+			let obj = {
+				_id: _id,
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				position: position,
+				profilePic: profilePic,
+				department: department,
+				department_id: department_id,
+			};
+
+			localStorage.setItem('deanData', JSON.stringify(obj));
 
 			Swal.fire({
 				title: 'Success',
-				text: `Thank you for loging in`,
+				text: `Logging In`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				onClose: redirect(dean),
+				onClose: redirect('dean'),
 			});
 			$('#dLoginLoader').hide();
 			$('#dLoginBtn').hide();
@@ -95,34 +101,30 @@ function loginAsInstructor() {
 			$('#iLoginLoader').hide();
 			$('#iLoginBtn').show();
 
-			const {
-				department,
-				email,
-				firstName,
-				lastName,
-				password,
-				position,
-				profilePic,
-				_id,
-			} = response.data.data;
+			const { email, firstName, lastName, position, profilePic, _id } = response.data.data;
 
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
+			document.cookie = `instructorToken=${response.data.token};path=/;${expires}`;
 
-			localStorage.setItem('hta_firstName', firstName);
-			localStorage.setItem('hta_lastName', lastName);
-			localStorage.setItem('hta_email', email);
-			localStorage.setItem('hta_position', position);
-			localStorage.setItem('hta_profilePic', profilePic);
+			let obj = {
+				_id: _id,
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				position: position,
+				profilePic: profilePic,
+			};
+
+			localStorage.setItem('instructorData', JSON.stringify(obj));
 
 			Swal.fire({
 				title: 'Success',
 				text: `Thank you for loging in`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				onClose: redirect(instructor),
+				onClose: redirect('instructor'),
 			});
 		})
 		.catch(function(error) {
@@ -151,16 +153,7 @@ function loginAsStudent() {
 			password: password,
 		})
 		.then(function(response) {
-			const {
-				department,
-				email,
-				firstName,
-				lastName,
-				password,
-				position,
-				profilePic,
-				_id,
-			} = response.data.data;
+			const { email, firstName, lastName, position, profilePic, _id } = response.data.data;
 
 			$('#sLoginLoader').hide();
 			$('#sLoginBtn').show();
@@ -168,20 +161,25 @@ function loginAsStudent() {
 			let date = new Date();
 			date.setTime(date.getTime() + 1 * 24 * 60 * 60 * 1000);
 			const expires = 'expires=' + date.toUTCString();
-			document.cookie = `HTAtoken=${response.data.token};path=/;${expires}`;
+			document.cookie = `studentToken=${response.data.token};path=/;${expires}`;
 
-			localStorage.setItem('hta_firstName', firstName);
-			localStorage.setItem('hta_lastName', lastName);
-			localStorage.setItem('hta_email', email);
-			localStorage.setItem('hta_position', position);
-			localStorage.setItem('hta_profilePic', profilePic);
+			let obj = {
+				_id: _id,
+				firstName: firstName,
+				lastName: lastName,
+				email: email,
+				position: position,
+				profilePic: profilePic,
+			};
+
+			localStorage.setItem('studentData', JSON.stringify(obj));
 
 			Swal.fire({
 				title: 'Success',
-				text: `Thank you for loging in`,
+				text: `Logging In`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				onClose: redirect(student),
+				onClose: redirect('student'),
 			});
 		})
 		.catch(function(error) {
