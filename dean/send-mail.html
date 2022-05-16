@@ -183,82 +183,70 @@
 
             <ol class="breadcrumb m-b-0">
                 <li><a href="index.html">Home</a></li>
-                <li class="active">Add Lecture</li>
+                <li class="active">send Mail</li>
             </ol>
             <div class="media">
                 <div class="media-body">
                     <h1 class="page-heading h2">
-                        Add Lecture
+                        Send Mail
                     </h1>
                 </div>
 
             </div>
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="card">
 
-                        <div class="card-block">
+            <div class="card">
 
-                            <div class="form-group">
-                                <label for="title">Topic</label>
-                                <input type="text" id="topic" class="form-control classChecker"
-                                    placeholder="Write a title">
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Department</label>
-                                <select class="form-control classChecker" id="department">
-                                </select>
-                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
-                                    id="departmentLoader"></i>
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Lecturer</label>
-                                <select class="form-control classChecker" id="lecturer">
+                <div class="p-a-2 tab-content">
+                    <div class="tab-pane active" id="first">
+                        <form action="#" class="form-horizontal">
 
-                                </select>
-                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
-                                    id="lecturerLoader"></i>
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Students</label>
-
-                                <select class=" form-control classChecker" multiple="multiple" id="students"
-                                    name="students">
-
-                                </select>
-                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
-                                    id="studentsLoader"></i>
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Time</label>
-                                <input type="datetime-local" id="time" class="form-control classChecker"
-                                    placeholder="Start Time">
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Duration</label>
-                                <input type="number" id="duration" class="form-control classChecker"
-                                    placeholder="No. of Minutes">
-                            </div>
-                            <div class="">
-                                <span id="emptyFields" style="color:red; display:none;"><i>Empty
-                                        fields</i></span>
-                                <a id="scheduleBtn" class="btn btn-block btn-success btn-rounded">SAVE</a>
-                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
-                                    id="scheduleLoader"></i>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 form-control-label">Role</label>
+                                <div class="col-sm-6 col-md-6">
+                                    <select class="form-control classChecker" id="rolez">
+                                        <option value="">--Choose Role--</option>
+                                        <option value="instructor">--Instructor--</option>
+                                        <option value="student">Student</option>
+                                    </select>
+                                </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 form-control-label">Select Users</label>
+                                <div class="col-sm-6 col-md-6">
+                                    <select class="form-control classChecker" id="userz" multiple="multiple">
+                                        <option></option>
+                                    </select>
+                                    <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                        id="userzLoader"></i>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-sm-3 form-control-label">Message</label>
+                                <div class="col-sm-6 col-md-6">
 
-                        </div>
+                                    <textarea class="form-control classChecker" id="messagez"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <div class="col-sm-8 col-sm-offset-3">
+                                    <div class="media">
+                                        <div class="media-left">
+                                            <a id="sendMailBtn" class="btn btn-success btn-rounded">Save Changes</a>
+                                            <span style="display: none; color: red;" id="emptyFields">Empty
+                                                Field(s)</span>
+                                            <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                                id="sendMailLoader"></i>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
                     </div>
-                </div>
 
-            </div>
 
-            <div class="modal fade" id="editLesson">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        // Edit Lesson
-                    </div>
                 </div>
             </div>
 
@@ -291,7 +279,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="assets/js/add_lecture.js"></script>
+    <script src="assets/js/send_mail.js"></script>
 
 </body>
 

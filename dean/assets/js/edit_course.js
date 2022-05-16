@@ -1,12 +1,13 @@
 $(document).ready(function() {
 	$('#students').select2();
 	getDepartment();
-	$('#department').on('change', () => {
-		$('#students').val(null).trigger('change');
-		let id = $('#department').val();
-		getInstructorByDepartment(id);
-		getStudentsByDepartment(id);
-	});
+
+	// $('#department').on('change', () => {
+	// 	$('#students').val(null).trigger('change');
+	// 	let id = $('#department').val();
+	// 	getInstructorByDepartment(id);
+	// 	getStudentsByDepartment(id);
+	// });
 	$('#scheduleBtn').on('click', () => {
 		if (isEmptyInput('.classChecker')) {
 			scheduleLecture();
@@ -14,9 +15,23 @@ $(document).ready(function() {
 	});
 });
 
+let id = window.location.search.split('?')[1].split(',')[0];
+let mId = window.location.search.split('?')[1].split(',')[1];
+
 function scheduleLecture() {
 	$('#scheduleBtn').hide();
 	$('#scheduleLoader').show();
+
+	//     {
+	//   "department": "string",
+	//   "department_id": "string",
+	//   "lecturer": "string",
+	//   "time": "string",
+	//   "duration": 0,
+	//   "topic": "string",
+	//   "meetingId": "string",
+	//   "lecture_id": "string"
+	// }
 
 	let department_id = $('#department').val();
 	let students = $('#students').val();
@@ -28,12 +43,14 @@ function scheduleLecture() {
 	let department = sel.options[sel.selectedIndex].text;
 
 	axios
-		.post(
-			`${apiPath}api/v1/scheduleLecture`,
+		.patch(
+			`${apiPath}api/v1/updateLecture`,
 			{
 				department: department,
 				department_id: department_id,
-				students: students,
+				// students: students,
+				meetingId: mId,
+				lecture_id: id,
 				lecturer: lecturer,
 				time: time,
 				duration: duration,
@@ -90,23 +107,25 @@ function getDepartment() {
 			$('#department').html(res);
 			$('#departmentLoader').hide();
 			$('#department').show();
+			getStudents();
 		})
 		.catch(function(error) {
 			console.log(error);
 			$('#departmentLoader').hide();
 			$('#department').show();
 			$('#department').html('<option style="color:red;">Error loading result</option>');
+			getStudents();
 		})
 		.then(function() {
 			// always executed
 		});
 }
 
-function getInstructorByDepartment(id) {
+function getInstructor(id) {
 	$('#lecturer').hide();
 	$('#lecturerLoader').show();
 	axios
-		.get(`${apiPath}api/v1/departmentalInstructors`, {
+		.get(`${apiPath}api/v1/instructors`, {
 			params: {
 				department: id,
 			},
@@ -123,24 +142,26 @@ function getInstructorByDepartment(id) {
 			$('#lecturer').html(res);
 			$('#lecturerLoader').hide();
 			$('#lecturer').show();
+			getLecture();
 		})
 		.catch(function(error) {
 			console.log(error);
 			$('#lecturerLoader').hide();
 			$('#lecturer').show();
 			$('#lecturer').html('<option style="color:red;">Error loading result</option>');
+			getLecture();
 		})
 		.then(function() {
 			// always executed
 		});
 }
 
-function getStudentsByDepartment(id) {
+function getStudents(id) {
 	$('#students').hide();
 	$('#studentsLoader').show();
 
 	axios
-		.get(`${apiPath}api/v1/departmentalstudents`, {
+		.get(`${apiPath}api/v1/getStudents`, {
 			params: {
 				department: id,
 			},
@@ -157,12 +178,57 @@ function getStudentsByDepartment(id) {
 			$('#students').html(res);
 			$('#studentsLoader').hide();
 			$('#students').show();
+
+			getInstructor();
 		})
 		.catch(function(error) {
 			console.log(error);
 			$('#studentsLoader').hide();
 			$('#students').show();
 			$('#students').html('<option style="color:red;">Error loading result</option>');
+
+			getInstructor();
+		})
+		.then(function() {
+			// always executed
+		});
+}
+
+function getLecture() {
+	$('#scheduleBtn').hide();
+	$('#scheduleLoader').show();
+	$('#error').html('');
+
+	axios
+		.get(`${apiPath}api/v1/getLecture/${id}`, {
+			headers: {
+				Authorization: token,
+			},
+		})
+		.then(function(response) {
+			const { data } = response.data;
+			let res = '';
+			// data.map((item, indx) => {
+			// 	res += `<option value="${item.email}">${item.firstName} ${item.lastName}</option>`;
+			// });
+			$('#department').val(data[0].department_id);
+			$('#lecturer').val(data[0].lecturer);
+			$('#students').val(data[0].students);
+			$('#students').trigger('change');
+			$('#duration').val(data[0].duration);
+			let timet = data[0].time.split('.')[0];
+			console.log(timet);
+			$('#time').val(timet);
+			$('#topic').val(data[0].topic);
+			// $('#students').html(res);
+			$('#scheduleLoader').hide();
+			$('#scheduleBtn').show();
+		})
+		.catch(function(error) {
+			console.log(error);
+			$('#scheduleLoader').hide();
+			$('#scheduleBtn').show();
+			$('#error').html('Error loading data');
 		})
 		.then(function() {
 			// always executed
