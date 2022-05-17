@@ -14,7 +14,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Roboto Web Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+    rel="stylesheet">
 
   <!-- App CSS -->
   <link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
@@ -27,28 +29,13 @@
   <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
 
     <!-- Toggle sidebar -->
-    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span class="material-icons">menu</span></button>
+    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span
+        class="material-icons">menu</span></button>
 
     <!-- Brand -->
-    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> Honey Treat Academy</a>
 
-    <ul class="nav navbar-nav pull-xs-left hidden-sm-down">
-      <li class="nav-item">
-        <div class="nav-stats">$591
-          <small>GROSS</small>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-stats">$31
-          <small>TAXES</small>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-stats">$560
-          <small>NET</small>
-        </div>
-      </li>
-    </ul>
+
 
     <!-- Menu -->
     <ul class="nav navbar-nav pull-xs-right">
@@ -67,7 +54,7 @@
             <i class="material-icons md-18">person</i>
             <span class="icon-text">Public Profile</span>
           </a>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" onclick="logOut()">Logout</a>
         </div>
       </li>
       <!-- // END User dropdown -->
@@ -78,20 +65,10 @@
   </nav>
   <!-- // END Navbar -->
   <!-- Sidebar -->
-  <div class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md" id="sidebarLeft" data-scrollable>
-    <div class="sidebar-heading">APPLICATIONS</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="index.html">
-          <i class="sidebar-menu-icon material-icons">account_box</i> Student
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-dashboard.html">
-          <i class="sidebar-menu-icon material-icons">school</i> Instructor
-        </a>
-      </li>
-    </ul>
+  <div
+    class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md"
+    id="sidebarLeft" data-scrollable>
+
     <div class="sidebar-heading">Instructor</div>
     <ul class="sidebar-menu">
       <li class="sidebar-menu-item active">
@@ -136,52 +113,7 @@
       </li>
     </ul>
     <!-- Components menu -->
-    <div class="sidebar-heading">UI Components</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="#">
-          <i class="sidebar-menu-icon material-icons">tune</i> UI Components
-        </a>
-        <ul class="sidebar-submenu sm-condensed">
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+
     <!-- // END Components Menu -->
   </div>
   <!-- // END Sidebar -->
@@ -194,86 +126,25 @@
         <li><a href="index.html">Home</a></li>
         <li class="active">Courses</li>
       </ol>
-      <h1 class="page-heading h2">Manage Courses</h1>
-      <div class="card-columns">
-        <div class="card">
-          <div class="card-header bg-white">
-            <div class="media">
-              <div class="media-left media-middle">
-                <a href="instructor-course-edit.html">
-                  <img src="assets/images/vuejs.png" alt="Card image cap" width="100" class="img-rounded">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4 class="card-title"><a href="instructor-course-edit.html">Learn VueJs</a></h4>
-                <span class="label label-primary">$1230</span> <span class="label label-default">34 SALES</span>
-              </div>
-              <div class="media-right media-middle">
-                <a href="instructor-course-edit.html" class="btn btn-white">Edit</a>
-              </div>
-            </div>
-          </div>
+      <div class="media">
+        <div class="media-body">
+          <h1 class="page-heading h2">
+            Manage Courses
+          </h1>
         </div>
-        <div class="card">
-          <div class="card-header bg-white">
-            <div class="media">
-              <div class="media-left media-middle">
-                <a href="instructor-course-edit.html">
-                  <img src="assets/images/nodejs.png" alt="Card image cap" width="100" class="img-rounded">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4 class="card-title"><a href="instructor-course-edit.html">Npm &amp; Gulp Advanced Workflow</a></h4>
-                <span class="label label-primary">$421</span> <span class="label label-default">12 SALES</span>
-              </div>
-              <div class="media-right media-middle">
-                <a href="instructor-course-edit.html" class="btn btn-white">Edit</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header bg-white">
-            <div class="media">
-              <div class="media-left media-middle">
-                <a href="instructor-course-edit.html">
-                  <img src="assets/images/github.png" alt="Card image cap" width="100" class="img-rounded">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4 class="card-title">
-                  <a href="instructor-course-edit.html">Github Webhooks for Beginners</a>
-                </h4>
-                <span class="label label-primary">$2191</span> <span class="label label-default">50 SALES</span>
-              </div>
-              <div class="media-right media-middle">
-                <a href="instructor-course-edit.html" class="btn btn-white">Edit</a>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <div class="card">
-          <div class="card-header bg-white">
-            <div class="media">
-              <div class="media-left media-middle">
-                <a href="instructor-course-edit.html">
-                  <img src="assets/images/gulp.png" alt="Card image cap" width="100" class="img-rounded">
-                </a>
-              </div>
-              <div class="media-body media-middle">
-                <h4 class="card-title"><a href="instructor-course-edit.html">Gulp & Slush Workflows</a></h4>
-                <span class="label label-primary">$300</span> <span class="label label-default">5 SALES</span>
-              </div>
-              <div class="media-right media-middle">
-                <a href="instructor-course-edit.html" class="btn btn-white">Edit</a>
-              </div>
-            </div>
-          </div>
+        <div class="media-right media-middle">
+          <a href="add_course.html" class="btn btn-primary btn-rounded">Add</a>
         </div>
       </div>
+      <div class="card-columns" id="lectures">
+        <div>
+          <i class="fa fa-spinner fa-spin fa-fw fa-3x" id="lecturesLoader"></i>
+          <span style="color: red;" id="errorHandler"></span>
+        </div>
+
+      </div>
       <nav class="center">
-        <ul class="pagination pagination-sm">
+        <!-- <ul class="pagination pagination-sm">
           <li class="page-item disabled">
             <a class="page-link" href="#" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
@@ -293,7 +164,7 @@
               <span class="sr-only">Next</span>
             </a>
           </li>
-        </ul>
+        </ul> -->
       </nav>
 
     </div>
@@ -310,7 +181,11 @@
   <script src="assets/vendor/adminplus.js"></script>
 
   <!-- App JS -->
+  <script src="https://kit.fontawesome.com/bcb3edd6a7.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="assets/js/main.min.js"></script>
+  <script src="assets/js/instructor-courses.js"></script>
 
 </body>
 

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html class="bootstrap-layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>HTA | Add Course</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+        rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+    <!-- Required by summernote -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <!-- Bootstrap Datepicker -->
+    <link rel="stylesheet" href="examples/css/bootstrap-datepicker.min.css">
+    <!-- Summernote WYSIWYG -->
+    <link rel="stylesheet" href="examples/css/summernote.min.css">
+    <!-- Nestable -->
+    <link rel="stylesheet" href="examples/css/nestable.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+</head>
+
+<body class="layout-container ls-top-navbar si-l3-md-up">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
+
+        <!-- Toggle sidebar -->
+        <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span
+                class="material-icons">menu</span></button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> Honey Treat Academy</a>
+
+
+        <!-- Menu -->
+        <ul class="nav navbar-nav pull-xs-right">
+
+            <!-- User dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false">
+                    <img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="img-circle" width="40">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-list">
+                    <a class="dropdown-item" href="instructor-account.html">
+                        <i class="material-icons md-18">lock</i>
+                        <span class="icon-text">Edit Account</span>
+                    </a>
+                    <a class="dropdown-item" href="instructor-profile.html">
+                        <i class="material-icons md-18">person</i>
+                        <span class="icon-text">Public Profile</span>
+                    </a>
+                    <a class="dropdown-item" onclick="logOut()">Logout</a>
+                </div>
+            </li>
+            <!-- // END User dropdown -->
+
+        </ul>
+        <!-- // END Menu -->
+
+    </nav>
+    <!-- // END Navbar -->
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md"
+        id="sidebarLeft" data-scrollable>
+
+        <div class="sidebar-heading">Dean</div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item active">
+                <a class="sidebar-menu-button" href="instructor-courses.html">
+                    <i class="sidebar-menu-icon material-icons">import_contacts</i> Course Manager
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-quizes.html">
+                    <i class="sidebar-menu-icon material-icons">help</i> Quiz Manager
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-profile.html">
+                    <i class="sidebar-menu-icon material-icons">language</i> Public Profile
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-account.html">
+                    <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-messages.html">
+                    <i class="sidebar-menu-icon material-icons">comment</i> Messages
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-earnings.html">
+                    <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-statement.html">
+                    <i class="sidebar-menu-icon material-icons">receipt</i> Statement
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="login.html">
+                    <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
+                </a>
+            </li>
+        </ul>
+        <!-- Components menu -->
+        <div class="sidebar-heading">UI Components</div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="#">
+                    <i class="sidebar-menu-icon material-icons">tune</i> UI Components
+                </a>
+                <ul class="sidebar-submenu sm-condensed">
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+                    </li>
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <!-- // END Components Menu -->
+    </div>
+    <!-- // END Sidebar -->
+
+    <!-- Content -->
+    <div class="layout-content" data-scrollable>
+        <div class="container-fluid">
+
+            <ol class="breadcrumb m-b-0">
+                <li><a href="index.html">Home</a></li>
+                <li class="active">Add Course</li>
+            </ol>
+            <div class="media">
+                <div class="media-body">
+                    <h1 class="page-heading h2">
+                        Add Course
+                    </h1>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+
+                        <div class="card-block">
+
+                            <div class="form-group">
+                                <label for="title">Topic</label>
+                                <input type="text" id="topic" class="form-control classChecker"
+                                    placeholder="Write a title">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Department</label>
+                                <select class="form-control classChecker" id="department">
+                                </select>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="departmentLoader"></i>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label for="title">Class</label>
+                                <select class="form-control classChecker" id="lecturer">
+
+                                </select>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="lecturerLoader"></i>
+                            </div> -->
+                            <!-- <div class="form-group">
+                                <label for="title">Students</label>
+
+                                <select class=" form-control classChecker" multiple="multiple" id="students"
+                                    name="students">
+
+                                </select>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="studentsLoader"></i>
+                            </div> -->
+                            <div class="form-group">
+                                <label for="title">Time</label>
+                                <input type="datetime-local" id="time" class="form-control classChecker"
+                                    placeholder="Start Time">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Description</label>
+                                <textarea id="description" class="form-control classChecker"></textarea>
+                            </div>
+                            <div class="">
+                                <span id="emptyFields" style="color:red; display:none;"><i>Empty
+                                        fields</i></span>
+                                <a id="scheduleBtn" class="btn btn-block btn-success btn-rounded">SAVE</a>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="scheduleLoader"></i>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="modal fade" id="editLesson">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        // Edit Lesson
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/tether.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- AdminPlus -->
+    <script src="assets/vendor/adminplus.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/main.min.js"></script>
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/summernote.min.js"></script>
+    <script src="assets/vendor/bootstrap-datepicker.min.js"></script>
+    <script src="assets/vendor/jquery.nestable.js"></script>
+
+    <!-- Init -->
+    <script src="examples/js/summernote.js"></script>
+    <script src="examples/js/date-time.js"></script>
+    <script src="examples/js/nestable.js"></script>
+    <!-- <script src="//code.jivosite.com/widget/cip9CkUWwB" async></script> -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/add_course.js"></script>
+
+</body>
+
+</html>
