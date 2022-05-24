@@ -77,7 +77,7 @@ function listLectures() {
                             <div class="card-block">
                                 <small class="text-muted">ADVANCED</small>
                                 <p class="m-b-0">
-                                Let’s start with a quick tour of Vue’s data binding features. If you are more interested in ...
+                                	Let’s start with a quick tour of Vue’s data binding features. If you are more interested in ...
                                 </p>
                                 <p><span class="label label-primary">${item.department}</span></p>
                             </div>

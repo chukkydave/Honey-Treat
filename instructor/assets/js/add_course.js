@@ -1,12 +1,12 @@
 $(document).ready(function() {
 	$('#students').select2();
 	getDepartment();
-	// $('#department').on('change', () => {
-	// 	$('#students').val(null).trigger('change');
-	// 	let id = $('#department').val();
-	// 	getInstructorByDepartment(id);
-	// 	getStudentsByDepartment(id);
-	// });
+	$('#department').on('change', () => {
+		$('#students').val(null).trigger('change');
+		let id = $('#department').val();
+		getInstructorByDepartment(id);
+		getStudentsByDepartment(id);
+	});
 	$('#scheduleBtn').on('click', () => {
 		if (isEmptyInput('.classChecker')) {
 			scheduleLecture();
@@ -29,7 +29,7 @@ function scheduleLecture() {
 	// }
 
 	let department_id = $('#department').val();
-	// let students = $('#students').val();
+	let students = $('#students').val();
 	let data = JSON.parse(localStorage.getItem('instructorData'));
 	let lecturer = data.email;
 	let description = $('#description').val();
@@ -37,7 +37,8 @@ function scheduleLecture() {
 	let time = document.querySelector('#time').value + ':00';
 	let sel = document.querySelector('#department');
 	let department = sel.options[sel.selectedIndex].text;
-	let lecture_url = '';
+	let lecture_url = $('#lecture_url').val();
+	let duration = $('#duration').val();
 
 	axios
 		.post(
@@ -47,7 +48,9 @@ function scheduleLecture() {
 				department_id: department_id,
 				lecturer: lecturer,
 				lecture_url: lecture_url,
+				students: students,
 				time: time,
+				duration: parseInt(duration),
 				description: description,
 				topic: topic,
 			},
@@ -68,7 +71,7 @@ function scheduleLecture() {
 				text: `Course Created successfully`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				// onClose: redirect('instructor-courses.html'),
+				onClose: redirect('instructor-courses.html'),
 			});
 		})
 		.catch(function(error) {

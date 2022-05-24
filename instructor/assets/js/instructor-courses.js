@@ -18,7 +18,7 @@ function listLectures() {
 	let data = JSON.parse(localStorage.getItem('instructorData'));
 
 	axios
-		.get(`${apiPath}api/v1/getInstructorLectures/${data.email}`, {
+		.get(`${apiPath}api/v1/lecturerCourses/${data.email}`, {
 			headers: {
 				Authorization: token,
 			},
@@ -91,7 +91,7 @@ function delete_lecture(id, mId) {
 			// },
 		})
 		.then((res) => {
-			if (res.data.status == '201') {
+			if (res.data.status === 201 || res.data.status === 200) {
 				console.log(`#row_${id}`);
 				$(`#row_${id}`).remove();
 			} else {
