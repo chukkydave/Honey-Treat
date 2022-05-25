@@ -14,7 +14,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Roboto Web Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+    rel="stylesheet">
 
   <!-- App CSS -->
   <link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
@@ -30,49 +32,31 @@
   <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
 
     <!-- Toggle sidebar -->
-    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span class="material-icons">menu</span></button>
+    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span
+        class="material-icons">menu</span></button>
 
     <!-- Brand -->
-    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> Honey Treat Academy</a>
 
-    <!-- Search -->
-    <form class="form-inline pull-xs-left hidden-sm-down">
-      <div class="input-group">
-        <input type="text" class="form-control" placeholder="Search">
-        <span class="input-group-btn"><button class="btn" type="button"><i class="material-icons">search</i></button></span>
-      </div>
-    </form>
-    <!-- // END Search -->
 
-    <ul class="nav navbar-nav hidden-sm-down">
 
-      <!-- Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="forum.html">Forum</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="get-help.html">Get Help</a>
-      </li>
-    </ul>
+
 
     <!-- Menu -->
     <ul class="nav navbar-nav pull-xs-right">
 
-      <li class="nav-item">
-        <a href="cart.html" class="nav-link">
-          <i class="material-icons">shopping_cart</i>
-        </a>
-      </li>
-
       <!-- User dropdown -->
       <li class="nav-item dropdown">
-        <a class="nav-link active dropdown-toggle p-a-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false">
+        <a class="nav-link active dropdown-toggle p-a-0" data-toggle="dropdown" href="#" role="button"
+          aria-haspopup="false">
           <img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="img-circle" width="40">
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-menu-list" aria-labelledby="Preview">
-          <a class="dropdown-item" href="account-edit.html"><i class="material-icons md-18">lock</i> <span class="icon-text">Edit Account</span></a>
-          <a class="dropdown-item" href="profile.html"><i class="material-icons md-18">person</i> <span class="icon-text">Public Profile</span></a>
-          <a class="dropdown-item" href="login.html">Logout</a>
+          <a class="dropdown-item" href="account-edit.html"><i class="material-icons md-18">lock</i> <span
+              class="icon-text">Edit Account</span></a>
+          <a class="dropdown-item" href="profile.html"><i class="material-icons md-18">person</i> <span
+              class="icon-text">Public Profile</span></a>
+          <a class="dropdown-item" onclick="logOut()">Logout</a>
         </div>
       </li>
       <!-- // END User dropdown -->
@@ -83,33 +67,33 @@
   </nav>
   <!-- // END Navbar -->
   <!-- Sidebar -->
-  <div class="sidebar sidebar-left sidebar-light sidebar-visible-md-up si-si-3 ls-top-navbar-xs-up sidebar-transparent-md" id="sidebarLeft" data-scrollable>
-    <div class="sidebar-heading">APPLICATIONS</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-dashboard.html">
-          <i class="sidebar-menu-icon material-icons">school</i> Instructor
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="index.html">
-          <i class="sidebar-menu-icon material-icons">account_box</i> Student
-        </a>
-      </li>
-    </ul>
+  <div
+    class="sidebar sidebar-left sidebar-light sidebar-visible-md-up si-si-3 ls-top-navbar-xs-up sidebar-transparent-md"
+    id="sidebarLeft" data-scrollable>
+
     <div class="sidebar-heading">Student</div>
     <ul class="sidebar-menu">
       <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="browse-courses.html">
-          <i class="sidebar-menu-icon material-icons">search</i> Browse Courses
+        <a class="sidebar-menu-button" href="index.html">
+          <i class="sidebar-menu-icon material-icons">home</i> Home
         </a>
       </li>
       <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="browse-courses.html">
+          <i class="sidebar-menu-icon material-icons">search</i>Courses
+        </a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="lectures.html">
+          <i class="sidebar-menu-icon material-icons">import_contacts</i> Live Lectures
+        </a>
+      </li>
+      <!-- <li class="sidebar-menu-item">
         <a class="sidebar-menu-button" href="view-course.html">
           <i class="sidebar-menu-icon material-icons">import_contacts</i> View Course
         </a>
       </li>
-      <li class="sidebar-menu-item active">
+      <li class="sidebar-menu-item">
         <a class="sidebar-menu-button" href="take-course.html">
           <i class="sidebar-menu-icon material-icons">class</i> Take Course
           <span class="sidebar-menu-label label label-default">PRO</span>
@@ -151,56 +135,10 @@
         <a class="sidebar-menu-button" href="login.html">
           <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
         </a>
-      </li>
+      </li> -->
     </ul>
     <!-- Components menu -->
-    <div class="sidebar-heading">UI Components</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="#">
-          <i class="sidebar-menu-icon material-icons">tune</i> UI Components
-        </a>
-        <ul class="sidebar-submenu sm-condensed">
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
-    <!-- // END Components Menu -->
+
   </div>
   <!-- // END Sidebar -->
 
@@ -209,24 +147,36 @@
     <div class="container-fluid">
 
       <ol class="breadcrumb m-b-0">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Courses</a></li>
-        <li class="active">The MVC architectural pattern</li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="browse-courses.html">Courses</a></li>
+        <li class="active" id="headingz"></li>
       </ol>
-      <h1 class="page-heading h2">The MVC architectural pattern</h1>
-      <div class="row">
+      <div class="media">
+        <div class="media-body">
+          <h1 class="page-heading h2" id="headingz2"></h1>
+        </div>
+        <div class="media-right media-middle">
+          <a href="browse-courses.html" class="btn btn-danger">Back</a>
+        </div>
+      </div>
+      <i class="fa fa-spinner fa-spin fa-fw fa-3x" id="courseLoader"></i>
+
+      <div class="row" id="course_cont" style="display: none;">
         <div class="col-md-8">
           <div class="card">
-            <div style="overflow:hidden; height:300px">
-              <iframe class="embed-responsive-item" src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="100%" height="300"></iframe>
+            <div style="overflow:hidden; height:300px" id="course_url">
+              <!-- <iframe class="embed-responsive-item" id="course_url"
+                src="https://player.vimeo.com/video/97243285?title=0&amp;byline=0&amp;portrait=0" frameborder="0"
+                webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" width="100%" height="300"></iframe> -->
             </div>
-            <div class="card-block">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta eius enim inventoreus optio ratione veritatis. Beatae deserunt illum ipsam magniima mollitia officiis quia tempora!
+            <div class="card-block" id="course_desc">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum dicta eius enim inventoreus optio ratione
+              veritatis. Beatae deserunt illum ipsam magniima mollitia officiis quia tempora!
             </div>
           </div>
 
           <!-- Lessons -->
-          <div class="card">
+          <!-- <div class="card">
             <ul class="list-group">
               <li class="list-group-item">
                 <div class="media">
@@ -307,16 +257,16 @@
                 </div>
               </li>
             </ul>
-          </div>
+          </div> -->
         </div>
         <div class="col-md-4">
-          <div class="card">
+          <!-- <div class="card">
             <div class="card-block">
               <a href="#" class="btn btn-primary btn-block btn-rounded">
                 <i class="material-icons md-36">get_app</i>
                 <br> Download Files</a>
             </div>
-          </div>
+          </div> -->
           <div class="card">
             <div class="card-header bg-white">
               <div class="media">
@@ -330,7 +280,8 @@
               </div>
             </div>
             <div class="card-block">
-              <p>Having over 12 years exp. Adrian is one of the lead UI designers in the industry Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, aut.</p>
+              <p>Having over 12 years exp. Adrian is one of the lead UI designers in the industry Lorem ipsum dolor sit
+                amet, consectetur adipisicing elit. Facere, aut.</p>
               <a href="" class="btn btn-default">
                 <i class="fa fa-facebook"></i>
               </a>
@@ -384,9 +335,7 @@
             </div>
           </div>
 
-          <a href="forum.html" class="btn btn-default btn-block btn-rounded">
-            <i class="material-icons">help</i> Get Help
-          </a>
+          <!--  -->
         </div>
       </div>
 
@@ -404,7 +353,11 @@
   <script src="assets/vendor/adminplus.js"></script>
 
   <!-- App JS -->
+  <script src="https://kit.fontawesome.com/bcb3edd6a7.js" crossorigin="anonymous"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="assets/js/main.min.js"></script>
+  <script src="assets/js/take_course.js"></script>
 
 </body>
 
