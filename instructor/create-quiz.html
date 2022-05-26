@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html class="bootstrap-layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+        rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
+
+    <!-- Touchspin -->
+    <link rel="stylesheet" href="examples/css/bootstrap-touchspin.min.css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="examples/css/nestable.min.css">
+
+</head>
+
+<body class="layout-container ls-top-navbar si-l3-md-up">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
+
+        <!-- Toggle sidebar -->
+        <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span
+                class="material-icons">menu</span></button>
+
+        <!-- Brand -->
+        <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> Honey Treat Academy</a>
+
+
+
+        <!-- Menu -->
+        <ul class="nav navbar-nav pull-xs-right">
+
+            <!-- User dropdown -->
+            <li class="nav-item dropdown">
+                <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                    aria-haspopup="false">
+                    <img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="img-circle" width="40">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-list">
+                    <a class="dropdown-item" href="instructor-account.html">
+                        <i class="material-icons md-18">lock</i>
+                        <span class="icon-text">Edit Account</span>
+                    </a>
+                    <a class="dropdown-item" href="instructor-profile.html">
+                        <i class="material-icons md-18">person</i>
+                        <span class="icon-text">Public Profile</span>
+                    </a>
+                    <a class="dropdown-item" onclick="logOut()">Logout</a>
+                </div>
+            </li>
+            <!-- // END User dropdown -->
+
+        </ul>
+        <!-- // END Menu -->
+
+    </nav>
+    <!-- // END Navbar -->
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md"
+        id="sidebarLeft" data-scrollable>
+
+        <div class="sidebar-heading">Instructor</div>
+        <ul class="sidebar-menu">
+            <li class="sidebar-menu-item ">
+                <a class="sidebar-menu-button" href="index.html">
+                    <i class="sidebar-menu-icon material-icons">home</i> Home
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="instructor-courses.html">
+                    <i class="sidebar-menu-icon material-icons">import_contacts</i> Course Manager
+                </a>
+            </li>
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="lectures.html">
+                    <i class="sidebar-menu-icon material-icons">tv</i>Live Lectures
+                </a>
+            </li>
+            <li class="sidebar-menu-item active">
+                <a class="sidebar-menu-button" href="instructor-quizes.html">
+                    <i class="sidebar-menu-icon material-icons">help</i> Quiz Manager
+                </a>
+            </li>
+            <!-- <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="instructor-profile.html">
+                <i class="sidebar-menu-icon material-icons">language</i> Public Profile
+              </a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="instructor-account.html">
+                <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
+              </a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="instructor-messages.html">
+                <i class="sidebar-menu-icon material-icons">comment</i> Messages
+              </a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="instructor-earnings.html">
+                <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
+              </a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="instructor-statement.html">
+                <i class="sidebar-menu-icon material-icons">receipt</i> Statement
+              </a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="login.html">
+                <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
+              </a>
+            </li> -->
+        </ul>
+        <!-- Components menu -->
+        <!-- <div class="sidebar-heading">UI Components</div>
+          <ul class="sidebar-menu">
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="#">
+                <i class="sidebar-menu-icon material-icons">tune</i> UI Components
+              </a>
+              <ul class="sidebar-submenu sm-condensed">
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+                </li>
+                <li class="sidebar-menu-item">
+                  <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+                </li>
+              </ul>
+            </li>
+          </ul> -->
+        <!-- // END Components Menu -->
+    </div>
+    <!-- // END Sidebar -->
+
+    <!-- Content -->
+    <div class="layout-content" data-scrollable>
+        <div class="container-fluid">
+
+            <ol class="breadcrumb m-b-0">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="instructor-quizes.html">Quiz Manager</a></li>
+                <li class="active">Create Quiz</li>
+            </ol>
+            <h1 class="page-heading h2">Create Quiz</h1>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">
+                        Basic
+                    </h4>
+                </div>
+                <div class="p-a-1">
+                    <div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Quiz Title:</label>
+                            <div class="col-sm-9 col-md-4">
+                                <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2">#</span>
+                                    <input type="text" class="form-control" placeholder="Title"
+                                        aria-describedby="sizing-addon2" id="topic">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Department:</label>
+                            <div class="col-sm-9 col-md-4">
+
+                                <select class="form-control c-select classChecker" id="department">
+                                </select>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="departmentLoader"></i>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Exam Date:</label>
+                            <div class="col-sm-9 col-md-4">
+                                <div class="input-group">
+                                    <input type="datetime-local" id="time" class="form-control classChecker"
+                                        placeholder="">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Level:</label>
+                            <div class="col-sm-9 col-md-4">
+
+                                <select class="form-control c-select classChecker" id="level">
+                                    <option value="">--Select Level--</option>
+                                    <option value="level 1">level 1</option>
+                                    <option value="level 2">level 2</option>
+                                    <option value="level 3">level 3</option>
+                                    <option value="level 4">level 4</option>
+                                    <option value="level 5">level 5</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Duration:</label>
+                            <div class="col-sm-9 col-md-4">
+                                <div class="input-group">
+                                    <input type="number" id="duration" placeholder="in minutes" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Quiz Image:</label>
+                            <div class="col-sm-9 col-md-4">
+                                <p>
+                                    <img src="assets/images/vuejs.png" alt="" width="150">
+                                </p>
+
+                                <label class="file">
+                                    <input type="file" id="file">
+                                    <span class="file-custom"></span>
+                                </label>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group row">
+                            <label for="time_toggle" class="col-sm-3 form-control-label">Timeframe</label>
+                            <div class="col-sm-9">
+                                <div class="switch">
+                                    <input id="cmn-toggle" class="switch-toggle switch-toggle-round" type="checkbox"
+                                        checked>
+                                    <label for="cmn-toggle"></label>
+                                </div>
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control center" value="4" style="width:50px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="c-select">
+                                            <option value="hour" selected>Hours</option>
+                                            <option value="minutes">Minutes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Questions</h4>
+                </div>
+                <div class="card-header bg-white">
+                    <a href="#" data-toggle="modal" data-target="#editQuiz" class="btn btn-success btn-rounded">Add
+                        Question <i class="material-icons">add</i></a>
+                </div>
+                <div class="">
+                    <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;" id="list_questLoader"></i>
+                    <ul class="list-group list-group-fit  m-b-0" id="list_quest">
+                        <!-- <li class="list-group-item nestable-item" data-id="1">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    Installation
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item nestable-item" data-id="2">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    The MVC architectural pattern
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item nestable-item" data-id="3">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    Database Models
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item nestable-item" data-id="4">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    Database Access
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item nestable-item" data-id="5">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    Eloquent Basics
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item nestable-item" data-id="6">
+                            <div class="media">
+
+                                <div class="media-body media-middle">
+                                    Take Quiz
+                                </div>
+                                <div class="media-right right">
+                                    <div style="width:100px">
+                                        <a href="#" data-toggle="modal" data-target="#editQuiz"
+                                            class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                        <a class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/tether.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- AdminPlus -->
+    <script src="assets/vendor/adminplus.js"></script>
+
+    <!-- App JS -->
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/jquery.nestable.js"></script>
+    <script src="assets/vendor/jquery.bootstrap-touchspin.js"></script>
+
+    <!-- Initialize -->
+    <script src="examples/js/nestable.js"></script>
+    <script src="examples/js/touchspin.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://kit.fontawesome.com/bcb3edd6a7.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/main.min.js"></script>
+    <script src="assets/js/create-quiz.js"></script>
+
+    <div class="modal fade" id="editQuiz">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Add/Edit Question</h5>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Title:</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="question" value="Database Access">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Type:</label>
+                            <div class="col-md-4">
+                                <select class="c-select form-control">
+
+                                    <option value="1">Input</option>
+                                    <option value="2">Textarea</option>
+                                    <option value="3">Checkbox</option>
+                                    <option value="3">Radio</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Answers:</label>
+                            <div class="col-md-9">
+                                <a href="#" class="btn btn-default btn-rounded"><i class="material-icons">add</i> Add
+                                    Answer</a>
+                            </div>
+                        </div> -->
+                        <!-- <a href="#" class="btn btn-default btn-rounded"><i class="material-icons">add</i> Add
+                                                            Answer</a> -->
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Options</label>
+                            <div class="col-md-9">
+                                <input type="radio" name="option" style="margin-right: 1em;"><input type="text"
+                                    class="option_text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="option" style="margin-right: 1em;"><input type="text"
+                                    class="option_text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="option" style="margin-right: 1em;"><input type="text"
+                                    class="option_text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="option" style="margin-right: 1em;"><input type="text"
+                                    class="option_text">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="option" style="margin-right: 1em;"><input type="text"
+                                    class="option_text">
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Question Score:</label>
+                            <div class="col-md-4">
+                                <input id="touch-spin-2" data-toggle="touch-spin" data-min="0" data-max="100"
+                                    data-step="5" type="text" value="50" name="demo2" class="form-control" />
+                            </div>
+                        </div> -->
+                        <p style="color:red;"><i>Kindly select an option that will be used as the answer.</i></p>
+                        <div class="form-group row">
+                            <div class="col-md-8 col-md-offset-3">
+                                <button type="submit" class="btn btn-success" id="save_question">Save</button>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="save_questionLoader"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
