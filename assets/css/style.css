@@ -43,12 +43,71 @@ TABLE OF CONTENTS:
 @import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&amp;display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;display=swap");
 /* Author CSS */
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+html {
+	font-family: 'Open-sans', sans-serif;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+.layout-content > .container-fluid{
+	max-width: 100% !important; 
+}
+.sidebar-heading{
+	color: white !important;
+	font-size: larger !important;
+    font-weight: 600 !important;
+	margin-top: 50px;	
+}
+.sidebar > .sidebar-heading:first-child, .simplebar-scroll-content > .sidebar-heading:first-child{
+	margin-bottom: 30px;	
+	margin-top: 30px;	
+
+
+}
+.sidebar-light .sidebar-menu-button, .sidebar-light .sidebar-menu-icon{
+	color: white !important;
+	font-size: larger !important;
+    font-weight: 500 !important;
+}
+
+div#sidebarLeft{
+	
+	background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(33, 150, 243, 0.9), 
+      rgba(39, 67, 200, 0.9)
+    ),
+	
+    /* bottom, image */
+	url('https://chukkydave.github.io/Honey-Treat/assets/images/image-025.jpg') !important;
+	/* background-color: #2743C8 !important; */
+    color: white !important;
+	background-size: cover !important;
+}
 body {
+	margin: 0px;
+	font-family: "Montserrat", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #373a3c;
+	background-color: #f9f9f9;
+}
+/* body {
 	margin: 0;
 	color: #374a5e;
 	font-size: 16px;
-	font-family: "Roboto", sans-serif;
+	font-family: "Poppins", sans-serif;
 	font-weight: 400;
+} */
+
+.sidebar-light .sidebar-menu-button{
+	color: white !important;
+}
+
+div#sidebarLeft{
+	background: #2743C8 !important;
+    color: white !important;
 }
 
 h1 {

@@ -5,14 +5,56 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
 html {
-	font-family: sans-serif;
+	font-family: 'Open-sans', sans-serif;
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
+.layout-content > .container-fluid{
+	max-width: 100% !important; 
+}
+.sidebar-heading{
+	color: white !important;
+	font-size: larger !important;
+    font-weight: 600 !important;
+	margin-top: 50px;	
+}
+.sidebar > .sidebar-heading:first-child, .simplebar-scroll-content > .sidebar-heading:first-child{
+	margin-bottom: 30px;	
+	margin-top: 30px;	
 
+
+}
+.sidebar-light .sidebar-menu-button, .sidebar-light .sidebar-menu-icon{
+	color: white !important;
+	font-size: larger !important;
+    font-weight: 500 !important;
+}
+
+div#sidebarLeft{
+	
+	background: 
+    /* top, transparent red, faked with gradient */ 
+    linear-gradient(
+      rgba(33, 150, 243, 0.9), 
+      rgba(39, 67, 200, 0.9)
+    ),
+	
+    /* bottom, image */
+	url('https://chukkydave.github.io/Honey-Treat/assets/images/image-025.jpg') !important;
+	/* background-color: #2743C8 !important; */
+    color: white !important;
+	background-size: cover !important;
+}
 body {
-	margin: 0;
+	margin: 0px;
+	font-family: "Montserrat", "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #373a3c;
+	background-color: #f9f9f9;
 }
 
 article,
@@ -323,7 +365,7 @@ html {
 }
 
 body {
-	font-family: Roboto, "Helvetica Neue", Arial, Helvetica, sans-serif;
+	font-family: "Montserrat", "Helvetica Neue", Arial, Helvetica, sans-serif;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: #373a3c;
