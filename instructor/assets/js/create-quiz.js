@@ -11,7 +11,17 @@ $(document).ready(() => {
 			return false;
 		}
 	});
-	$('#save_question').on('click', handleQuestions);
+	$('#save_question').on('click', () => {
+		let radiot = document.getElementsByName('option');
+		if ($('#question').val() === '') {
+			$('#errorQuest').html('Question field blank');
+			return false;
+		} else if (!radiot.checked) {
+			$('#errorQuest').html('No option was selected as an answer');
+			return false;
+		}
+		handleQuestions();
+	});
 });
 let questions_obj = [];
 
@@ -168,6 +178,10 @@ function handleQuestions() {
 	console.log(questions_obj);
 	$('#save_question').show();
 	$('#save_questionLoader').hide();
+	$('.option_text').val('');
+	$('#question').val('');
+	let radiot = document.getElementsByName('option');
+	$(radiot).attr('checked', false);
 	$('#editQuiz').modal('hide');
 
 	UpdateQuestionsOnScreen();

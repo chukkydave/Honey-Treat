@@ -432,11 +432,13 @@
                     <h5 class="modal-title">Add/Edit Question</h5>
                 </div>
                 <div class="modal-body">
+                    <p style="color:red;"><i>Kindly select an option that will be used as the answer.</i></p>
+
                     <div>
                         <div class="form-group row">
                             <label for="" class="form-control-label col-md-3">Title:</label>
                             <div class="col-md-9">
-                                <input type="text" class="form-control" id="question" value="Database Access">
+                                <input type="text" class="form-control" id="question">
                             </div>
                         </div>
                         <!-- <div class="form-group row">
@@ -503,7 +505,7 @@
                                     data-step="5" type="text" value="50" name="demo2" class="form-control" />
                             </div>
                         </div> -->
-                        <p style="color:red;"><i>Kindly select an option that will be used as the answer.</i></p>
+                        <p id="errorQuest" style="color:red;"></p>
                         <div class="form-group row">
                             <div class="col-md-8 col-md-offset-3">
                                 <button type="submit" class="btn btn-success" id="save_question">Save</button>
