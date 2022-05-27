@@ -14,7 +14,9 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Roboto Web Font -->
-  <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+    rel="stylesheet">
 
   <!-- App CSS -->
   <link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
@@ -27,28 +29,13 @@
   <nav class="navbar navbar-dark bg-primary navbar-full navbar-fixed-top">
 
     <!-- Toggle sidebar -->
-    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span class="material-icons">menu</span></button>
+    <button class="navbar-toggler pull-xs-left" type="button" data-toggle="sidebar" data-target="#sidebarLeft"><span
+        class="material-icons">menu</span></button>
 
     <!-- Brand -->
-    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+    <a href="index.html" class="navbar-brand"><i class="material-icons">school</i> Honey Treat Academy</a>
 
-    <ul class="nav navbar-nav pull-xs-left hidden-sm-down">
-      <li class="nav-item">
-        <div class="nav-stats">$591
-          <small>GROSS</small>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-stats">$31
-          <small>TAXES</small>
-        </div>
-      </li>
-      <li class="nav-item">
-        <div class="nav-stats">$560
-          <small>NET</small>
-        </div>
-      </li>
-    </ul>
+
 
     <!-- Menu -->
     <ul class="nav navbar-nav pull-xs-right">
@@ -67,7 +54,7 @@
             <i class="material-icons md-18">person</i>
             <span class="icon-text">Public Profile</span>
           </a>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" onclick="logOut()">Logout</a>
         </div>
       </li>
       <!-- // END User dropdown -->
@@ -78,25 +65,25 @@
   </nav>
   <!-- // END Navbar -->
   <!-- Sidebar -->
-  <div class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md" id="sidebarLeft" data-scrollable>
-    <div class="sidebar-heading">APPLICATIONS</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="index.html">
-          <i class="sidebar-menu-icon material-icons">account_box</i> Student
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-dashboard.html">
-          <i class="sidebar-menu-icon material-icons">school</i> Instructor
-        </a>
-      </li>
-    </ul>
+  <div
+    class="sidebar sidebar-left si-si-3 sidebar-visible-md-up sidebar-light ls-top-navbar-xs-up sidebar-transparent-md"
+    id="sidebarLeft" data-scrollable>
+
     <div class="sidebar-heading">Instructor</div>
     <ul class="sidebar-menu">
+      <li class="sidebar-menu-item ">
+        <a class="sidebar-menu-button" href="index.html">
+          <i class="sidebar-menu-icon material-icons">home</i> Home
+        </a>
+      </li>
       <li class="sidebar-menu-item">
         <a class="sidebar-menu-button" href="instructor-courses.html">
           <i class="sidebar-menu-icon material-icons">import_contacts</i> Course Manager
+        </a>
+      </li>
+      <li class="sidebar-menu-item">
+        <a class="sidebar-menu-button" href="lectures.html">
+          <i class="sidebar-menu-icon material-icons">tv</i>Live Lectures
         </a>
       </li>
       <li class="sidebar-menu-item active">
@@ -104,84 +91,84 @@
           <i class="sidebar-menu-icon material-icons">help</i> Quiz Manager
         </a>
       </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-profile.html">
-          <i class="sidebar-menu-icon material-icons">language</i> Public Profile
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-account.html">
-          <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-messages.html">
-          <i class="sidebar-menu-icon material-icons">comment</i> Messages
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-earnings.html">
-          <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="instructor-statement.html">
-          <i class="sidebar-menu-icon material-icons">receipt</i> Statement
-        </a>
-      </li>
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="login.html">
-          <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
-        </a>
-      </li>
+      <!-- <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-profile.html">
+            <i class="sidebar-menu-icon material-icons">language</i> Public Profile
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-account.html">
+            <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-messages.html">
+            <i class="sidebar-menu-icon material-icons">comment</i> Messages
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-earnings.html">
+            <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="instructor-statement.html">
+            <i class="sidebar-menu-icon material-icons">receipt</i> Statement
+          </a>
+        </li>
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="login.html">
+            <i class="sidebar-menu-icon material-icons">lock_open</i> Logout
+          </a>
+        </li> -->
     </ul>
     <!-- Components menu -->
-    <div class="sidebar-heading">UI Components</div>
-    <ul class="sidebar-menu">
-      <li class="sidebar-menu-item">
-        <a class="sidebar-menu-button" href="#">
-          <i class="sidebar-menu-icon material-icons">tune</i> UI Components
-        </a>
-        <ul class="sidebar-submenu sm-condensed">
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
-          </li>
-          <li class="sidebar-menu-item">
-            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
-          </li>
-        </ul>
-      </li>
-    </ul>
+    <!-- <div class="sidebar-heading">UI Components</div>
+      <ul class="sidebar-menu">
+        <li class="sidebar-menu-item">
+          <a class="sidebar-menu-button" href="#">
+            <i class="sidebar-menu-icon material-icons">tune</i> UI Components
+          </a>
+          <ul class="sidebar-submenu sm-condensed">
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+            </li>
+            <li class="sidebar-menu-item">
+              <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+            </li>
+          </ul>
+        </li>
+      </ul> -->
     <!-- // END Components Menu -->
   </div>
   <!-- // END Sidebar -->
@@ -199,7 +186,7 @@
           <h1 class="page-heading h2">Quizes</h1>
         </div>
         <div class="media-right media-middle">
-          <a href="#" class="btn btn-success btn-rounded">New Quiz <i class="material-icons">add</i></a>
+          <a href="create-quiz.html" class="btn btn-success btn-rounded">New Quiz <i class="material-icons">add</i></a>
         </div>
       </div>
       <div class="row">
@@ -220,8 +207,11 @@
                 </div>
               </div>
               <div class="card-footer center">
-                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i class="material-icons">playlist_add_check</i> Review <span class="label text-primary bg-white">5</span></a>
-                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i class="material-icons">edit</i> Edit </a>
+                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i
+                    class="material-icons">playlist_add_check</i> Review <span
+                    class="label text-primary bg-white">5</span></a>
+                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i
+                    class="material-icons">edit</i> Edit </a>
                 <div class="clearfix"></div>
               </div>
             </div>
@@ -243,8 +233,11 @@
 
               </div>
               <div class="card-footer center">
-                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i class="material-icons">playlist_add_check</i> Review <span class="label text-primary bg-white">5</span></a>
-                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i class="material-icons">edit</i> Edit </a>
+                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i
+                    class="material-icons">playlist_add_check</i> Review <span
+                    class="label text-primary bg-white">5</span></a>
+                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i
+                    class="material-icons">edit</i> Edit </a>
                 <div class="clearfix"></div>
               </div>
             </div>
@@ -266,8 +259,11 @@
                 </div>
               </div>
               <div class="card-footer center">
-                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i class="material-icons">playlist_add_check</i> Review <span class="label text-primary bg-white">5</span></a>
-                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i class="material-icons">edit</i> Edit </a>
+                <a href="instructor-quiz.html" class="btn btn-primary btn-sm pull-xs-left"><i
+                    class="material-icons">playlist_add_check</i> Review <span
+                    class="label text-primary bg-white">5</span></a>
+                <a href="instructor-quiz-edit.html" class="btn btn-default btn-sm pull-xs-right"><i
+                    class="material-icons">edit</i> Edit </a>
                 <div class="clearfix"></div>
               </div>
             </div>

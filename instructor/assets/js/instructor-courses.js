@@ -18,28 +18,17 @@ function listLectures() {
 	let data = JSON.parse(localStorage.getItem('instructorData'));
 
 	axios
-		.get(`${apiPath}api/v1/getInstructorLectures/${data.email}`, {
+		.get(`${apiPath}api/v1/lecturerCourses/${data.email}`, {
 			headers: {
 				Authorization: token,
 			},
 		})
 		.then(function(response) {
-			//             department: "Welding/Fabrication and Steel fixing"
-			// department_id: "1"
-			// duration: "60"
-			// hostId: "_Pj_NfwQQry6GLXBYWfRwA"
-			// lecture_assigned_by: "6273654b326b8815c2f3f6b7"
-			// lecturer: "teejohn247@gmail.com"
-			// meetingId: 83941573393
-			// students: ["teedev247@gmail.com"]
-			// time: "2022-07-06T13:53:00.000Z"
-			// topic: "Test"
-			// __v: 0
-			// _id: "6276d3c6d326a7ebfd5a77a0"
 			const { data } = response.data;
 			let res = '';
-			data.map((item, indx) => {
-				res += `<div class="card" id="row_${item._id}"><i style="display:none;" class="fa fa-spinner fa-spin fa-fw fa-2x" id="deleteSpinner_${item._id}"></i>
+			if (data.length !== 0) {
+				data.map((item, indx) => {
+					res += `<div class="card" id="row_${item._id}"><i style="display:none;" class="fa fa-spinner fa-spin fa-fw fa-2x" id="deleteSpinner_${item._id}"></i>
 			        <div class="card-header bg-white" id="block_${item._id}">
 			            <div class="media">
 			                <div class="media-left media-middle">
@@ -59,7 +48,11 @@ function listLectures() {
 			            </div>
 			        </div>
 			    </div>`;
-			});
+				});
+			} else {
+				res += '<p>No courses available</p>';
+			}
+
 			$('#lectures').append(res);
 			$('#lecturesLoader').hide();
 			// $('#department').show();
@@ -91,7 +84,7 @@ function delete_lecture(id, mId) {
 			// },
 		})
 		.then((res) => {
-			if (res.data.status == '201') {
+			if (res.data.status === 201 || res.data.status === 200) {
 				console.log(`#row_${id}`);
 				$(`#row_${id}`).remove();
 			} else {

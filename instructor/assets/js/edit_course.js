@@ -72,7 +72,7 @@ function scheduleLecture() {
 				text: `Course Update Successful`,
 				icon: 'success',
 				confirmButtonText: 'Okay',
-				onClose: redirect('instructor-courses.html'),
+				// onClose: redirect('instructor-courses.html'),
 			});
 		})
 		.catch(function(error) {
@@ -211,6 +211,7 @@ function getLecture() {
 			// 	res += `<option value="${item.email}">${item.firstName} ${item.lastName}</option>`;
 			// });
 			$('#department').val(data[0].department_id);
+			$('#description').val(data[0].description);
 			$('#lecturer').val(data[0].lecturer);
 			$('#students').val(data[0].students);
 			$('#students').trigger('change');

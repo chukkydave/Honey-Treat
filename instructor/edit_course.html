@@ -76,40 +76,24 @@
 
         <div class="sidebar-heading">Instructor</div>
         <ul class="sidebar-menu">
-            <li class="sidebar-menu-item">
+            <li class="sidebar-menu-item ">
+                <a class="sidebar-menu-button" href="index.html">
+                    <i class="sidebar-menu-icon material-icons">home</i> Home
+                </a>
+            </li>
+            <li class="sidebar-menu-item active">
                 <a class="sidebar-menu-button" href="instructor-courses.html">
                     <i class="sidebar-menu-icon material-icons">import_contacts</i> Course Manager
                 </a>
             </li>
-
+            <li class="sidebar-menu-item">
+                <a class="sidebar-menu-button" href="lectures.html">
+                    <i class="sidebar-menu-icon material-icons">tv</i>Live Lectures
+                </a>
+            </li>
             <li class="sidebar-menu-item">
                 <a class="sidebar-menu-button" href="instructor-quizes.html">
                     <i class="sidebar-menu-icon material-icons">help</i> Quiz Manager
-                </a>
-            </li>
-            <li class="sidebar-menu-item">
-                <a class="sidebar-menu-button" href="instructor-profile.html">
-                    <i class="sidebar-menu-icon material-icons">language</i> Public Profile
-                </a>
-            </li>
-            <li class="sidebar-menu-item">
-                <a class="sidebar-menu-button" href="instructor-account.html">
-                    <i class="sidebar-menu-icon material-icons">account_box</i> Account Settings
-                </a>
-            </li>
-            <li class="sidebar-menu-item">
-                <a class="sidebar-menu-button" href="instructor-messages.html">
-                    <i class="sidebar-menu-icon material-icons">comment</i> Messages
-                </a>
-            </li>
-            <li class="sidebar-menu-item">
-                <a class="sidebar-menu-button" href="instructor-earnings.html">
-                    <i class="sidebar-menu-icon material-icons">trending_up</i> Earnings
-                </a>
-            </li>
-            <li class="sidebar-menu-item">
-                <a class="sidebar-menu-button" href="instructor-statement.html">
-                    <i class="sidebar-menu-icon material-icons">receipt</i> Statement
                 </a>
             </li>
 
@@ -146,7 +130,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Department</label>
-                                <select class="form-control classChecker" id="department">
+                                <select class="form-control classChecker" id="department" disabled>
                                 </select>
                                 <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
                                     id="departmentLoader"></i>
@@ -172,7 +156,7 @@
                             <div class="form-group">
                                 <label for="title">Time</label>
                                 <input type="datetime-local" id="time" class="form-control classChecker"
-                                    placeholder="Start Time">
+                                    placeholder="Start Time" disabled>
                             </div>
                             <div class="form-group">
                                 <label for="title">Description</label>

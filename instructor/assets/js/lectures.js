@@ -18,7 +18,7 @@ function listLectures() {
 	let data = JSON.parse(localStorage.getItem('studentData'));
 
 	axios
-		.get(`${apiPath}api/v1/studentCourses/${data.email}`, {
+		.get(`${apiPath}api/v1/getInstructorLectures/${data.email}`, {
 			headers: {
 				Authorization: token,
 			},
@@ -26,33 +26,33 @@ function listLectures() {
 		.then(function(response) {
 			const { data } = response.data;
 			let res = '';
-			if (data.length !== 0) {
+			if (data.length) {
 				data.map((item, indx) => {
 					res += `<div class="card" id="row_${item._id}"><i style="display:none;" class="fa fa-spinner fa-spin fa-fw fa-2x" id="deleteSpinner_${item._id}"></i>
-								<div class="card-header bg-white center">
-									<h4 class="card-title"><a href="take-course.html">${item.topic}</a></h4>
-									<div>
-									<i class="material-icons text-warning md-18">star</i>
-									<i class="material-icons text-warning md-18">star</i>
-									<i class="material-icons text-warning md-18">star</i>
-									<i class="material-icons text-warning md-18">star</i>
-									<i class="material-icons text-warning md-18">star_border</i>
-									</div>
-								</div>
-								<a href="take-course.html?${item._id}">
-									<img src="assets/images/vuejs.png" alt="Card image cap" style="width:100%;">
-								</a>
-								<div class="card-block">
-									<small class="text-muted">ADVANCED</small>
-									<p class="m-b-0">
-										${item.description}
-									</p>
-									<p><span class="label label-primary">${item.department}</span></p>
-								</div>
-							</div>`;
+                            <div class="card-header bg-white center">
+                                <h4 class="card-title"><a href="take-course.html">${item.topic}</a></h4>
+                                <div>
+                                <i class="material-icons text-warning md-18">star</i>
+                                <i class="material-icons text-warning md-18">star</i>
+                                <i class="material-icons text-warning md-18">star</i>
+                                <i class="material-icons text-warning md-18">star</i>
+                                <i class="material-icons text-warning md-18">star_border</i>
+                                </div>
+                            </div>
+                            <a href="take-course.html">
+                                <img src="assets/images/vuejs.png" alt="Card image cap" style="width:100%;">
+                            </a>
+                            <div class="card-block">
+                                <small class="text-muted">ADVANCED</small>
+                                <p class="m-b-0">
+                                	Let’s start with a quick tour of Vue’s data binding features. If you are more interested in ...
+                                </p>
+                                <p><span class="label label-primary">${item.department}</span></p>
+                            </div>
+                        </div>`;
 				});
 			} else {
-				res += `<p style="color:red;">No Course available</p>`;
+				res += `<p>No live lectures available</p>`;
 			}
 
 			$('#lectures').append(res);
