@@ -16,6 +16,8 @@ $(document).ready(() => {
 	});
 });
 
+
+
 function loginAsDean() {
 	$('#dLoginBtn').hide();
 	$('#dLoginLoader').show();
