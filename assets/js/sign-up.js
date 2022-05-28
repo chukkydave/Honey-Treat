@@ -13,6 +13,8 @@ $(document).ready(() => {
 			studentSignUp();
 		}
 	});
+
+	getDepartment();
 });
 
 function instructorSignUp() {
@@ -86,6 +88,10 @@ function studentSignUp() {
 	let firstName = $('#sfirstName').val();
 	let lastName = $('#slastName').val();
 	let email = $('#semail').val();
+	let department_id = $('#department').val();
+	let sel = document.querySelector('#department');
+	let department = sel.options[sel.selectedIndex].text;
+	let level = $('#level').val();
 	let password = $('#spassword').val();
 
 	let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})');
@@ -106,6 +112,9 @@ function studentSignUp() {
 			firstName: firstName,
 			lastName: lastName,
 			email: email,
+			department_id: department_id,
+			department: department,
+			level: level,
 			password: password,
 		})
 		.then(function(response) {
@@ -139,4 +148,37 @@ function reload() {
 	setTimeout(() => {
 		window.location.reload();
 	}, 2000);
+}
+
+function getDepartment() {
+	$('#department').hide();
+	$('#departmentLoader').show();
+	axios
+		.get(
+			`https://hta-api.herokuapp.com/api/v1/department`,
+			{
+				// headers: {
+				// 	Authorization: token,
+				// },
+			},
+		)
+		.then(function(response) {
+			const { data } = response.data;
+			let res = '<option>-- Select Department --</option>';
+			data.map((item, indx) => {
+				res += `<option value="${item.id}">${item.department}</option>`;
+			});
+			$('#department').html(res);
+			$('#departmentLoader').hide();
+			$('#department').show();
+		})
+		.catch(function(error) {
+			console.log(error);
+			$('#departmentLoader').hide();
+			$('#department').show();
+			$('#department').html('<option style="color:red;">Error loading result</option>');
+		})
+		.then(function() {
+			// always executed
+		});
 }

@@ -16,8 +16,6 @@ $(document).ready(() => {
 	});
 });
 
-
-
 function loginAsDean() {
 	$('#dLoginBtn').hide();
 	$('#dLoginLoader').show();
@@ -155,7 +153,17 @@ function loginAsStudent() {
 			password: password,
 		})
 		.then(function(response) {
-			const { email, firstName, lastName, position, profilePic, _id } = response.data.data;
+			const {
+				email,
+				firstName,
+				lastName,
+				position,
+				profilePic,
+				_id,
+				department,
+				department_id,
+				level,
+			} = response.data.data;
 
 			$('#sLoginLoader').hide();
 			$('#sLoginBtn').show();
@@ -169,6 +177,9 @@ function loginAsStudent() {
 				_id: _id,
 				firstName: firstName,
 				lastName: lastName,
+				department: department,
+				department_id: department_id,
+				level: level,
 				email: email,
 				position: position,
 				profilePic: profilePic,
