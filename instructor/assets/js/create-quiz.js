@@ -267,7 +267,7 @@ function createQuiz() {
 	let department_id = $('#department').val();
 	let data = JSON.parse(localStorage.getItem('instructorData'));
 	let lecturer = data.email;
-	// let topic = $('#topic').val();
+	let topic = $('#topic').val();
 	let time = document.querySelector('#time').value + ':00';
 	let sel = document.querySelector('#department');
 	let department = sel.options[sel.selectedIndex].text;
@@ -282,6 +282,7 @@ function createQuiz() {
 				department_id: department_id,
 				lecturer: lecturer,
 				level: level,
+				topic: topic,
 				examDate: time,
 				duration: parseInt(duration),
 				questions_obj: questions_obj,

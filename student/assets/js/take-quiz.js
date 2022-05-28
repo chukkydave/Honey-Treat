@@ -12,21 +12,19 @@ $(document).ready(() => {
 	});
 });
 
+let id = window.location.search.split('?')[1];
+
 function listQuizes() {
 	$('#errorHandler').html('');
 	// $('#departmentLoader').show();
 	let data = JSON.parse(localStorage.getItem('studentData'));
-	let level = data.level;
-	let department_id = data.department_id;
-
-	console.log(level, department_id);
 
 	axios
-		.get(`${apiPath}api/v1/fetchQuiz`, {
-			params: {
-				department_id: department_id,
-				level: level,
-			},
+		.get(`${apiPath}api/v1/viewExam/${id}`, {
+			// params: {
+			// 	department_id: department_id,
+			// 	level: level,
+			// },
 			headers: {
 				Authorization: token,
 			},
