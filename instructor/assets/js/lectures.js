@@ -15,7 +15,7 @@ $(document).ready(() => {
 function listLectures() {
 	$('#errorHandler').html('');
 	// $('#departmentLoader').show();
-	let data = JSON.parse(localStorage.getItem('studentData'));
+	let data = JSON.parse(localStorage.getItem('instructorData'));
 
 	axios
 		.get(`${apiPath}api/v1/getInstructorLectures/${data.email}`, {

@@ -40,6 +40,13 @@ function scheduleLecture() {
 	let lecture_url = $('#lecture_url').val();
 	let duration = $('#duration').val();
 
+	if (students.length <= 0) {
+		$('#emptyFields').show();
+		return false;
+	}
+
+	$('#emptyFields').hide();
+
 	axios
 		.post(
 			`${apiPath}api/v1/createCourse`,

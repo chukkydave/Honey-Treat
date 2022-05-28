@@ -188,7 +188,18 @@
                 <li><a href="instructor-quizes.html">Quiz Manager</a></li>
                 <li class="active">Create Quiz</li>
             </ol>
-            <h1 class="page-heading h2">Create Quiz</h1>
+            <!-- <h1 class="page-heading h2"></h1> -->
+            <div class="media">
+                <div class="media-body">
+                    <h1 class="page-heading h2">
+                        Create Quiz
+                    </h1>
+                </div>
+                <div class="media-right media-middle">
+                    <button class="btn btn-success btn-rounded" id="upload_quiz">Upload</button>
+                    <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;" id="upload_quizLoader"></i>
+                </div>
+            </div>
             <div class="card">
                 <div class="card-header">
                     <h4 class="card-title">
@@ -202,7 +213,7 @@
                             <div class="col-sm-9 col-md-4">
                                 <div class="input-group">
                                     <span class="input-group-addon" id="sizing-addon2">#</span>
-                                    <input type="text" class="form-control" placeholder="Title"
+                                    <input type="text" class="form-control classChecker" placeholder="Title"
                                         aria-describedby="sizing-addon2" id="topic">
                                 </div>
                             </div>
@@ -246,7 +257,8 @@
                             <label for="course_title" class="col-sm-3 form-control-label">Duration:</label>
                             <div class="col-sm-9 col-md-4">
                                 <div class="input-group">
-                                    <input type="number" id="duration" placeholder="in minutes" class="form-control">
+                                    <input type="number" id="duration" placeholder="in minutes"
+                                        class="form-control classChecker">
                                 </div>
                             </div>
                         </div>
@@ -509,8 +521,106 @@
                         <div class="form-group row">
                             <div class="col-md-8 col-md-offset-3">
                                 <button type="submit" class="btn btn-success" id="save_question">Save</button>
+
                                 <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
                                     id="save_questionLoader"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="viewQuiz">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-primary">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title">Edit Question</h5>
+                </div>
+                <div class="modal-body">
+                    <p style="color:red;"><i>Kindly select an option that will be used as the answer.</i></p>
+
+                    <div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Title:</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" id="questione">
+                            </div>
+                        </div>
+                        <!-- <div class="form-group row">
+                                <label for="" class="form-control-label col-md-3">Type:</label>
+                                <div class="col-md-4">
+                                    <select class="c-select form-control">
+    
+                                        <option value="1">Input</option>
+                                        <option value="2">Textarea</option>
+                                        <option value="3">Checkbox</option>
+                                        <option value="3">Radio</option>
+                                    </select>
+                                </div>
+                            </div> -->
+                        <!-- <div class="form-group row">
+                                <label for="" class="form-control-label col-md-3">Answers:</label>
+                                <div class="col-md-9">
+                                    <a href="#" class="btn btn-default btn-rounded"><i class="material-icons">add</i> Add
+                                        Answer</a>
+                                </div>
+                            </div> -->
+                        <!-- <a href="#" class="btn btn-default btn-rounded"><i class="material-icons">add</i> Add
+                                                                Answer</a> -->
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3">Options</label>
+                            <div class="col-md-9">
+                                <input type="radio" name="optione" style="margin-right: 1em;"><input type="text"
+                                    class="option_texte">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="optione" style="margin-right: 1em;"><input type="text"
+                                    class="option_texte">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="optione" style="margin-right: 1em;"><input type="text"
+                                    class="option_texte">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="optione" style="margin-right: 1em;"><input type="text"
+                                    class="option_texte">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="" class="form-control-label col-md-3"></label>
+                            <div class="col-md-9">
+                                <input type="radio" name="optione" style="margin-right: 1em;"><input type="text"
+                                    class="option_texte">
+                            </div>
+                        </div>
+
+                        <!-- <div class="form-group row">
+                                <label for="" class="form-control-label col-md-3">Question Score:</label>
+                                <div class="col-md-4">
+                                    <input id="touch-spin-2" data-toggle="touch-spin" data-min="0" data-max="100"
+                                        data-step="5" type="text" value="50" name="demo2" class="form-control" />
+                                </div>
+                            </div> -->
+                        <p id="errorQueste" style="color:red;"></p>
+                        <div class="form-group row">
+                            <div class="col-md-8 col-md-offset-3">
+                                <button type="submit" class="btn btn-success" id="edit_question">Edit</button>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="edit_questionLoader"></i>
                             </div>
                         </div>
                     </div>

@@ -16,11 +16,53 @@ $(document).ready(() => {
 		if ($('#question').val() === '') {
 			$('#errorQuest').html('Question field blank');
 			return false;
-		} else if (!radiot.checked) {
+		}
+
+		if (!$('input[name=option]:checked').length) {
 			$('#errorQuest').html('No option was selected as an answer');
 			return false;
 		}
+
+		$('#errorQuest').html('');
+
 		handleQuestions();
+	});
+
+	$('#edit_question').on('click', () => {
+		let radiot = document.getElementsByName('optione');
+		if ($('#questione').val() === '') {
+			$('#errorQueste').html('Question field blank');
+			return false;
+		}
+
+		if (!$('input[name=optione]:checked').length) {
+			$('#errorQueste').html('No option was selected as an answer');
+			return false;
+		}
+
+		$('#errorQueste').html('');
+
+		handleQuestionsEdit();
+	});
+
+	$('#upload_quiz').on('click', () => {
+		if (isEmptyInput('.classChecker')) {
+			createQuiz();
+		}
+	});
+
+	$('#viewQuiz').on('hidden.bs.modal', function() {
+		$('.option_texte').val('');
+		$('#questione').val('');
+		let radiot = document.getElementsByName('optione');
+		$(radiot).attr('checked', false);
+	});
+
+	$('#editQuiz').on('hidden.bs.modal', function() {
+		$('.option_text').val('');
+		$('#question').val('');
+		let radiot = document.getElementsByName('option');
+		$(radiot).attr('checked', false);
 	});
 });
 let questions_obj = [];
@@ -202,9 +244,9 @@ function UpdateQuestionsOnScreen() {
                         </div>
                         <div class="media-right right">
                             <div style="width:100px">
-                                <a data-toggle="modal" data-id="${i}" data-target="#editQuiz"
-                                    class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
-                                <a data-id="${i}" class="btn btn-danger btn-sm"><i class="material-icons">delete</i></a>
+                                <a data-toggle="modal" data-id="${i}" data-target="#viewQuiz"
+                                    class="btn btn-primary btn-sm"><i class="material-icons" onclick="fetchSingleQuest(${i})">edit</i></a>
+                                <a data-id="${i}" class="btn btn-danger btn-sm" onclick="removeQuestion(${i})"><i class="material-icons">delete</i></a>
                             </div>
                         </div>
                     </div>
@@ -213,12 +255,14 @@ function UpdateQuestionsOnScreen() {
 		$('#list_quest').html(res);
 		$('#list_questLoader').hide();
 		$('#list_quest').show();
+	} else {
+		$('#list_quest').html('');
 	}
 }
 
 function createQuiz() {
-	$('#scheduleBtn').hide();
-	$('#scheduleLoader').show();
+	$('#upload_quiz').hide();
+	$('#upload_quizLoader').show();
 
 	let department_id = $('#department').val();
 	let data = JSON.parse(localStorage.getItem('instructorData'));
@@ -251,8 +295,8 @@ function createQuiz() {
 		.then(function(response) {
 			// const {} = response.data.data;
 
-			$('#scheduleLoader').hide();
-			$('#scheduleBtn').show();
+			$('#upload_quizLoader').hide();
+			$('#upload_quiz').show();
 
 			Swal.fire({
 				title: 'Success',
@@ -264,8 +308,8 @@ function createQuiz() {
 		})
 		.catch(function(error) {
 			console.log(error.response);
-			$('#scheduleLoader').hide();
-			$('#scheduleBtn').show();
+			$('#upload_quizLoader').hide();
+			$('#upload_quiz').show();
 			Swal.fire({
 				title: 'Error!',
 				text: `${error.response.data.error}`,
@@ -273,4 +317,61 @@ function createQuiz() {
 				confirmButtonText: 'Close',
 			});
 		});
+}
+
+function fetchSingleQuest(id) {
+	// $('#viewQuiz').modal('show');
+	$('#edit_question').attr('data', id);
+
+	let one = questions_obj[id];
+	$('#questione').val(one.question);
+	$('.option_texte').each((i, v) => {
+		$(v).val(one.options[i].option);
+		if (one.options[i].isCorrect) {
+			// $(v.previousElementSibling).attr('checked', true);
+			v.previousElementSibling.checked = true;
+		}
+	});
+}
+
+function handleQuestionsEdit() {
+	let id = $('#edit_question').attr('data');
+
+	$('#edit_question').hide();
+	$('#edit_questionLoader').show();
+	let question = $('#questione').val();
+	let options = [];
+
+	$('.option_texte').each((i, v) => {
+		if ($(v).val() !== '') {
+			if (v.previousElementSibling.checked) {
+				options.push({ option: $(v).val(), isCorrect: true });
+			} else {
+				options.push({ option: $(v).val(), isCorrect: false });
+			}
+		}
+	});
+
+	questions_obj[id] = {
+		question: question,
+		options: options,
+	};
+
+	console.log(questions_obj);
+	$('#edit_question').show();
+	$('#edit_questionLoader').hide();
+	$('.option_texte').val('');
+	$('#questione').val('');
+	let radiot = document.getElementsByName('optione');
+	$(radiot).attr('checked', false);
+	$('#viewQuiz').modal('hide');
+
+	UpdateQuestionsOnScreen();
+}
+
+function removeQuestion(id) {
+	if (questions_obj[id]) {
+		questions_obj.splice(id, 1);
+	}
+	UpdateQuestionsOnScreen();
 }

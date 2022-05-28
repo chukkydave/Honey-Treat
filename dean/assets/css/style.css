@@ -12,40 +12,32 @@ html {
 	-ms-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;
 }
-.layout-content > .container-fluid{
-	max-width: 100% !important; 
+.layout-content > .container-fluid {
+	max-width: 100% !important;
 }
-.sidebar-heading{
+.sidebar-heading {
 	color: white !important;
 	font-size: larger !important;
-    font-weight: 600 !important;
-	margin-top: 50px;	
+	font-weight: 600 !important;
+	margin-top: 50px;
 }
-.sidebar > .sidebar-heading:first-child, .simplebar-scroll-content > .sidebar-heading:first-child{
-	margin-bottom: 30px;	
-	margin-top: 30px;	
-
-
+.sidebar > .sidebar-heading:first-child,
+.simplebar-scroll-content > .sidebar-heading:first-child {
+	margin-bottom: 30px;
+	margin-top: 30px;
 }
-.sidebar-light .sidebar-menu-button, .sidebar-light .sidebar-menu-icon{
+.sidebar-light .sidebar-menu-button,
+.sidebar-light .sidebar-menu-icon {
 	color: white !important;
 	font-size: larger !important;
-    font-weight: 500 !important;
+	font-weight: 500 !important;
 }
 
-div#sidebarLeft{
-	
-	background: 
-    /* top, transparent red, faked with gradient */ 
-    linear-gradient(
-      rgba(33, 150, 243, 0.9), 
-      rgba(39, 67, 200, 0.9)
-    ),
-	
-    /* bottom, image */
-	url('https://chukkydave.github.io/Honey-Treat/assets/images/image-025.jpg') !important;
+div#sidebarLeft {
+	background: linear-gradient(rgba(33, 150, 243, 0.9), rgba(39, 67, 200, 0.9)),
+		url('https://chukkydave.github.io/Honey-Treat/assets/images/image-025.jpg') !important;
 	/* background-color: #2743C8 !important; */
-    color: white !important;
+	color: white !important;
 	background-size: cover !important;
 }
 body {
@@ -103,9 +95,9 @@ a:hover {
 	outline: 0;
 }
 
-/* .has-error {
+.has-error {
 	border: 1px solid red !important;
-} */
+}
 
 abbr[title] {
 	border-bottom: 1px dotted;
