@@ -19,6 +19,8 @@
     rel="stylesheet">
 
   <!-- App CSS -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
   <link type="text/css" href="assets/css/style.min.css" rel="stylesheet">
 
 </head>
@@ -97,10 +99,9 @@
   </div>
   <!-- // END Sidebar -->
   <!-- Sidebar -->
-  <div class="sidebar sidebar-right si-si-3 sidebar-visible-lg-up ls-top-navbar-xs-up sidebar-light bg-white"
+  <!-- <div class="sidebar sidebar-right si-si-3 sidebar-visible-lg-up ls-top-navbar-xs-up sidebar-light bg-white"
     id="sidebarRight" data-position="right" data-scrollable data-visible="lg-up">
-    <div class="sidebar-heading">Time left</div>
-    <div class="countdown" data-value="4" data-unit="hour"></div>
+
 
     <div class="sidebar-heading">Pending</div>
     <ul class="list-group list-group-fit">
@@ -153,7 +154,7 @@
         </a>
       </li>
     </ul>
-  </div>
+  </div> -->
   <!-- // END Sidebar -->
 
   <!-- Content -->
@@ -164,11 +165,25 @@
         <li><a href="index.html">Home</a></li>
         <li class="active">Quiz</li>
       </ol>
+      <div class="media">
+        <div class="media-body media-middle">
+          <h1 class="page-heading h2" id="topic"></h1>
+          <p id="department"></p>
+        </div>
+
+      </div>
+      <!-- <div class="card"> -->
+      <div class="center">
+        <div class="sidebar-heading">Time left</div>
+        <div class="countdown" id="countDown" data-unit="minute"></div>
+      </div>
+      <!-- </div> -->
       <div class="card-group">
+
         <div class="card">
           <div class="card-block center">
             <h4 class="m-b-0">
-              <strong>25</strong>
+              <strong id="totalQuest">0</strong>
             </h4>
             <small class="text-muted-light">TOTAL</small>
           </div>
@@ -176,7 +191,7 @@
         <div class="card">
           <div class="card-block center">
             <h4 class="text-success m-b-0">
-              <strong>3</strong>
+              <strong id="correctQuest">0</strong>
             </h4>
             <small class="text-muted-light">CORECT</small>
           </div>
@@ -184,7 +199,7 @@
         <div class="card">
           <div class="card-block center">
             <h4 class="text-danger m-b-0">
-              <strong>5</strong>
+              <strong id="wrongQuest">0</strong>
             </h4>
             <small class="text-muted-light">WRONG</small>
           </div>
@@ -192,7 +207,7 @@
         <div class="card">
           <div class="card-block center">
             <h4 class="text-primary m-b-0">
-              <strong>17</strong>
+              <strong id="leftQuest">0</strong>
             </h4>
             <small class="text-muted-light">LEFT</small>
           </div>
@@ -200,7 +215,8 @@
       </div>
 
       <div class="card">
-        <div class="card-header bg-white p-a-1">
+        <div id="quiz"></div>
+        <!-- <div class="card-header bg-white p-a-1">
           <div class="media">
             <div class="media-left media-middle">
               <h4 class="m-b-0">
@@ -233,15 +249,59 @@
               <span class="c-indicator"></span> git pull
             </label>
           </div>
-        </div>
-        <div class="card-footer">
-          <a href="#" class="btn btn-white ">Skip</a>
-          <a href="#" class="btn btn-success btn-rounded pull-xs-right">Submit <i class="material-icons">send</i></a>
+        </div>-->
+        <div class="card-footer" id="card-footer">
+          <a class="btn btn-default" id="previous">previous</a>
+          <!-- <a class="btn btn-white" id="skip">Skip</a> -->
+          <a class="btn btn-primary" id="next">next</a>
+
+          <a id="submit" class="btn btn-success btn-rounded pull-xs-right">Submit <i class="material-icons">send</i></a>
         </div>
       </div>
 
     </div>
   </div>
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div style="text-align: center;">
+            <h5>Countdown starts in ...</h5>
+            <h1 id="countdown" style="font-size: 3em;">10</h1>
+          </div>
+        </div>
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
 
   <!-- jQuery -->
   <script src="assets/vendor/jquery.min.js"></script>
@@ -263,12 +323,15 @@
 
   <!-- Init -->
   <script src="examples/js/countdown.js"></script>
-
   <script src="https://kit.fontawesome.com/bcb3edd6a7.js" crossorigin="anonymous"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script> -->
   <!-- <script src="assets/js/main.min.js"></script> -->
   <script src="assets/js/take-quiz.js"></script>
+
 
 </body>
 

@@ -9,6 +9,14 @@ $(document).ready(() => {
 		// 	return false;
 		// }
 	});
+	$(document).on('click', '.delete', function() {
+		var id = $(this).attr('id').replace(/delete_/, '');
+		if (confirm('Are you sure you want to delete this record')) {
+			delete_quiz(id);
+		} else {
+			return false;
+		}
+	});
 });
 
 function listQuizes() {
@@ -36,7 +44,7 @@ function listQuizes() {
 			if (data.length) {
 				data.map((item, indx) => {
 					let id = item._id;
-					res += `<div class="card">
+					res += `<div class="card" id="row_${item._id}>
                             <div class="card-block">
                                 <div class="media m-b-05">
                                     <div class="media-left media-middle">
@@ -48,15 +56,13 @@ function listQuizes() {
                                     <div class="media-body media-middle">
                                         <h4 class="card-title m-b-0">${item.topic}</h4>
                                         <small class="text-muted">${item.department}</small>
+                                        <i class="material-icons pull-xs-right" style="color:blue;">edit</i> 
+                                        <i class="material-icons pull-xs-right delete" style="color:red;" id="delete_${item._id}">delete</i>
                                     </div>
                                 </div>
+                                 
                             </div>
-                            <div class="card-footer center">
-                                <a class="btn btn-primary btn-sm pull-xs-left showSwal" id="show_${id}"><i
-                                        class="material-icons">playlist_add_check</i> Take Quiz</a>
-
-                                <div class="clearfix"></div>
-                            </div>
+                            
                         </div>`;
 				});
 			} else {
@@ -96,4 +102,47 @@ function showSwal(id) {
 			swal.close();
 		}
 	});
+}
+
+function delete_quiz(id) {
+	$(`#block_${id}`).hide();
+	$(`#deleteSpinner_${id}`).show();
+
+	axios
+		.delete(`${apiPath}api/v1/deleteQuiz/${id}`, {
+			// meetingId and lecture_id
+			headers: {
+				Authorization: token,
+			},
+			// data: {
+			// 	meetingId: mId,
+			// 	lecture_id: id,
+			// },
+		})
+		.then((res) => {
+			if (res.data.status == '200' || res.data.status == 200) {
+				console.log(`#row_${id}`);
+				$(`#row_${id}`).remove();
+			} else {
+				$(`#block_${id}`).show();
+				$(`#deleteSpinner_${id}`).hide();
+				Swal.fire({
+					title: 'Error!',
+					text: `Error Deleting Record`,
+					icon: 'error',
+					confirmButtonText: 'Close',
+				});
+			}
+		})
+		.catch((error) => {
+			$(`#block_${id}`).show();
+			$(`#deleteSpinner_${id}`).hide();
+			Swal.fire({
+				title: 'Error!',
+				text: `Error Deleting Record`,
+				icon: 'error',
+				confirmButtonText: 'Close',
+			});
+		})
+		.then((res) => {});
 }

@@ -1,37 +1,43 @@
 (function($) {
-
-	$.fn.tkCountdown = function () {
-        this.countdown({
-            date: moment().add((this.data('value') || 3), (this.data('unit') || 'hour')).format("MMMM D, YYYY HH:mm:ss"),
+	$.fn.tkCountdown = function() {
+		this.countdown({
+			date: moment()
+				.add(this.data('value') || 3, this.data('unit') || 'hour')
+				.format('MMMM D, YYYY HH:mm:ss'),
 			// date: "March 7, 2016 13:03:26",
-			render: function (date) {
-			
-				if (date.days > 0) 
-					$days = '<span class="h5 text-primary">' + date.days  + '</span>days ';
-				else 
-					$days = '';
-				
-				if (date.hours > 0) 
-					$hours = '<span class="h5 text-primary">' + this.leadingZeros(date.hours)  + '</span> hrs ';
-				else 
-					$hours = '';
+			render: function(date) {
+				if (date.days > 0)
+					$days = '<span class="h5 text-primary">' + date.days + '</span>days ';
+				else $days = '';
 
-				if (date.min > 0) 
-					$min = '<span class="h5 text-primary">' + this.leadingZeros(date.min)  + '</span> min ';
-				else 
-					$min = '';
-				if (date.sec > 0) 
-					$sec = '<span class="h5 text-primary">' + this.leadingZeros(date.sec) + '</span> sec';
-				else 
+				if (date.hours > 0)
+					$hours =
+						'<span class="h5 text-primary">' +
+						this.leadingZeros(date.hours) +
+						'</span> hrs ';
+				else $hours = '';
+
+				if (date.min > 0)
+					$min =
+						'<span class="h5 text-primary">' +
+						this.leadingZeros(date.min) +
+						'</span> min ';
+				else $min = '';
+				if (date.sec > 0) {
+					$sec =
+						'<span class="h5 text-primary">' +
+						this.leadingZeros(date.sec) +
+						'</span> sec';
+				} else {
 					$sec = '';
+					submit();
+				}
 
-				this.el.innerHTML = '<p class="p-l-1 p-r-1">' +
-									$days + $hours + $min + $sec
-									+'</p>'; 		
-			}
-        });
-    };
+				this.el.innerHTML =
+					'<p class="p-l-1 p-r-1">' + $days + $hours + $min + $sec + '</p>';
+			},
+		});
+	};
 
-	$('.countdown').tkCountdown();
-
-}(jQuery));
+	// $('.countdown').tkCountdown();
+})(jQuery);
