@@ -3,6 +3,7 @@ $(document).ready(() => {
 		backdrop: 'static',
 		keyboard: false,
 	});
+
 	$('#exampleModal').modal('show');
 
 	$(document).on('click', '.delete', function() {
@@ -25,6 +26,10 @@ $(document).ready(() => {
 });
 
 let questionsArr = [];
+let departmentG;
+let department_idG;
+let lecturerG;
+let levelG;
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -73,6 +78,11 @@ function listQuizes() {
 					$('#leftQuest').html(totalQuestions - 1);
 				}
 
+				departmentG = data[0].department;
+				department_idG = data[0].department_id;
+				lecturerG = data[0].lecturer;
+				levelG = data[0].level;
+
 				data[0].questions_obj.map((item) => {
 					questionsArr.push(item);
 				});
@@ -80,7 +90,7 @@ function listQuizes() {
                             <div class="media">
                                 <div class="media-left media-middle">
                                 <h4 class="m-b-0">
-                                    <strong>#1</strong>
+                                    <strong id="numCountt">#1</strong>
                                 </h4>
                                 </div>
                                 <div class="media-body  media-middle">
@@ -184,14 +194,14 @@ function next() {
 	}
 	// insert next question
 	let newPosition = position + 1;
-	if (newPosition > questionsArr.length) {
+	if (newPosition < questionsArr.length) {
 		res = '';
 
 		res += ` <div class="card-header bg-white p-a-1" data-id="0">
                 <div class="media">
                     <div class="media-left media-middle">
                     <h4 class="m-b-0">
-                        <strong>#1</strong>
+                        <strong>#${newPosition + 1}</strong>
                     </h4>
                     </div>
                     <div class="media-body  media-middle">
@@ -214,7 +224,7 @@ function next() {
                     <label class="">
                     <input type="radio" value="${t}-${v.option}_${v._id}" ${
 				v.selected ? 'checked' :
-				''} class="answers" name="answer_${data[0].questions_obj[0]._id}" id="${v._id}">
+				''} class="answers" name="answer_${questionsArr[newPosition]._id}" id="${v._id}">
                     <span class="c-indicator"></span> ${v.option}
                     </label>
                 </div>`;
@@ -249,7 +259,7 @@ function previous() {
                 <div class="media">
                     <div class="media-left media-middle">
                     <h4 class="m-b-0">
-                        <strong>#1</strong>
+                        <strong>#${newPosition + 1}</strong>
                     </h4>
                     </div>
                     <div class="media-body  media-middle">
@@ -272,7 +282,7 @@ function previous() {
                     <label class="">
                     <input type="radio" value="${t}-${v.option}_${v._id}" ${
 				v.selected ? 'checked' :
-				''} class="answers" name="answer_${data[0].questions_obj[0]._id}" id="${v._id}">
+				''} class="answers" name="answer_${questionsArr[newPosition]._id}" id="${v._id}">
                     <span class="c-indicator"></span> ${v.option}
                     </label>
                 </div>`;
@@ -328,4 +338,104 @@ function submit() {
 	// $('#countDown').tkCountdown();
 	$('#correctQuest').html(correct);
 	$('#wrongQuest').html(wrong);
+
+	let totalQuest = parseInt($('#totalQuest').html());
+	let data = JSON.parse(localStorage.getItem('studentData'));
+	let student_email = data.email;
+
+	let percent = parseInt(correct) / totalQuest * 100;
+
+	console.log(percent);
+
+	axios
+		.post(
+			`${apiPath}api/v1/saveScore`,
+			{
+				department: departmentG,
+				department_id: department_idG,
+				lecturer: lecturerG,
+				student_email: student_email,
+				level: levelG,
+				score: percent,
+				questions_obj: questionsArr,
+			},
+			{
+				headers: {
+					Authorization: token,
+				},
+			},
+		)
+		.then(function(response) {
+			// const {} = response.data.data;
+
+			// $('#scheduleLoader').hide();
+			// $('#scheduleBtn').show();
+			$('#exampleModal2').modal('hide');
+			Swal.fire({
+				title: 'Success',
+				text: `Quiz submitted successfully`,
+				icon: 'success',
+				confirmButtonText: 'Okay',
+				// onClose: ,
+			});
+
+			setTimeout(() => {
+				redirect('student-quizes.html');
+			}, 5000);
+		})
+		.catch(function(error) {
+			console.log(error);
+
+			// $('#scheduleLoader').hide();
+			// $('#scheduleBtn').show();
+			// if (
+			// 	error.response.data.error == 'Score already saved' ||
+			// 	error.message != 'Network Error'
+			// ) {
+			// 	Swal.fire({
+			// 		title: 'Error!',
+			// 		text: `${error.response.data.error}`,
+			// 		icon: 'error',
+			// 		confirmButtonText: 'Close',
+			// 	});
+			// 	setTimeout(() => {
+			// 		redirect('student-quizes.html');
+			// 	}, 5000);
+			// } else {
+			// 	$('#exampleModal2').modal({
+			// 		backdrop: 'static',
+			// 		keyboard: false,
+			// 	});
+			// 	$('#exampleModal2').modal('show');
+			// 	submit();
+			// }
+
+			if (error.response) {
+				if (error.response.data.error == 'Score already saved') {
+					Swal.fire({
+						title: 'Error!',
+						text: `${error.response.data.error}`,
+						icon: 'error',
+						confirmButtonText: 'Close',
+					});
+					setTimeout(() => {
+						redirect('student-quizes.html');
+					}, 5000);
+				} else {
+					$('#exampleModal2').modal({
+						backdrop: 'static',
+						keyboard: false,
+					});
+					$('#exampleModal2').modal('show');
+					submit();
+				}
+			} else {
+				$('#exampleModal2').modal({
+					backdrop: 'static',
+					keyboard: false,
+				});
+				$('#exampleModal2').modal('show');
+				submit();
+			}
+		});
 }

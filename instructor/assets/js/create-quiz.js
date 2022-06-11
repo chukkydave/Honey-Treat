@@ -11,6 +11,12 @@ $(document).ready(() => {
 			return false;
 		}
 	});
+	$('#students').select2();
+	$('#department').on('change', () => {
+		$('#students').val(null).trigger('change');
+		let id = $('#department').val();
+		getStudentsByDepartment(id);
+	});
 	$('#save_question').on('click', () => {
 		let radiot = document.getElementsByName('option');
 		if ($('#question').val() === '') {
@@ -273,6 +279,7 @@ function createQuiz() {
 	let department = sel.options[sel.selectedIndex].text;
 	let duration = $('#duration').val();
 	let level = $('#level').val();
+	let students = $('#students').val();
 
 	axios
 		.post(
@@ -284,6 +291,7 @@ function createQuiz() {
 				level: level,
 				topic: topic,
 				examDate: time,
+				students: students,
 				duration: parseInt(duration),
 				questions_obj: questions_obj,
 			},
@@ -375,4 +383,38 @@ function removeQuestion(id) {
 		questions_obj.splice(id, 1);
 	}
 	UpdateQuestionsOnScreen();
+}
+
+function getStudentsByDepartment(id) {
+	$('#students').hide();
+	$('#studentsLoader').show();
+
+	axios
+		.get(`${apiPath}api/v1/departmentalstudents`, {
+			params: {
+				department: id,
+			},
+			headers: {
+				Authorization: token,
+			},
+		})
+		.then(function(response) {
+			const { data } = response.data;
+			let res = '<option>-- Select Student --</option>';
+			data.map((item, indx) => {
+				res += `<option value="${item.email}">${item.firstName} ${item.lastName}</option>`;
+			});
+			$('#students').html(res);
+			$('#studentsLoader').hide();
+			$('#students').show();
+		})
+		.catch(function(error) {
+			console.log(error);
+			$('#studentsLoader').hide();
+			$('#students').show();
+			$('#students').html('<option style="color:red;">Error loading result</option>');
+		})
+		.then(function() {
+			// always executed
+		});
 }

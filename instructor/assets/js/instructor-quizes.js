@@ -44,7 +44,7 @@ function listQuizes() {
 			if (data.length) {
 				data.map((item, indx) => {
 					let id = item._id;
-					res += `<div class="card" id="row_${item._id}>
+					res += `<div class="card" id="row_${item._id}">
                             <div class="card-block">
                                 <div class="media m-b-05">
                                     <div class="media-left media-middle">
@@ -121,6 +121,8 @@ function delete_quiz(id) {
 		})
 		.then((res) => {
 			if (res.data.status == '200' || res.data.status == 200) {
+				alert('entered');
+
 				console.log(`#row_${id}`);
 				$(`#row_${id}`).remove();
 			} else {

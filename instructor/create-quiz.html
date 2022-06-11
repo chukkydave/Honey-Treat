@@ -26,6 +26,7 @@
 
     <!-- Vendor CSS -->
     <link rel="stylesheet" href="examples/css/nestable.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
 </head>
 
@@ -228,6 +229,17 @@
                                     id="departmentLoader"></i>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="course_title" class="col-sm-3 form-control-label">Students:</label>
+                            <div class="col-sm-9 col-md-4">
+
+                                <select class="form-control c-select classChecker" multiple="multiple" id="students">
+                                </select>
+                                <i class="fa fa-spinner fa-spin fa-fw fa-2x" style="display:none;"
+                                    id="studentsLoader"></i>
+                            </div>
+                        </div>
+
                         <div class="form-group row">
                             <label for="course_title" class="col-sm-3 form-control-label">Exam Date:</label>
                             <div class="col-sm-9 col-md-4">

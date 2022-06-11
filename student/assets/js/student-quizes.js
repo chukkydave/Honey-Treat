@@ -21,11 +21,11 @@ function listQuizes() {
 	console.log(level, department_id);
 
 	axios
-		.get(`${apiPath}api/v1/fetchQuiz`, {
-			params: {
-				department_id: department_id,
-				level: level,
-			},
+		.get(`${apiPath}api/v1/fetchQuizStudent`, {
+			// params: {
+			// 	department_id: department_id,
+			// 	level: level,
+			// },
 			headers: {
 				Authorization: token,
 			},
